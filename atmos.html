@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .container {
+        display: flex; justify-content: center; flex-direction: row; 
+        /*align-items: center;
+        /*background-color: rgb(208, 235, 208);*/
+        /*border: 2px solid #5c7058;*/
+        margin: 1%;
+        /*align-items: stretch;*/
+        width: auto;
+        max-height:95vh;
+      }
+
+      .horiz {
+        /*background-color: rgb(200, 228, 245);*/
+        /*border: 2px solid #7db5d6;*/
+        margin: 1px;
+        display: flex; flex-direction: column;
+        align-items: center;
+        width: auto;
+        height: 85vh; /* Займає 100% висоти видимого екрану */
+        position: relative;
+        display: inline-block;
+      }
+
+      .imgT1, .imgT3 { 
+        /*background-color: rgb(250, 252, 137);*/
+        /*border: 2px solid rgb(250, 252, 137);*/
+        margin: 1px;
+        cursor: pointer;
+        align-items: center;
+        display: flex; flex-direction: column;
+        /*height: auto;*/
+        max-height: 60vh; /* Зображення не буде виходити за межі видимого екрану */
+        width: auto;
+        object-fit: contain; /* або object-fit: cover; в залежності від ваших вимог */
+      }
+      .imgT2,.imgT4 { 
+        /*background-color: rgb(245, 165, 234);*/
+        /*border: 2px solid rgb(245, 165, 234);*/
+        margin: 1px;
+        cursor: pointer;
+        display: flex; flex-direction: column;
+        align-items: center;
+        /*height: auto;*/
+        max-height: 60vh; /* Зображення не буде виходити за межі видимого екрану */
+        width: auto;
+        object-fit: contain; /* або object-fit: cover; в залежності від ваших вимог */
+      }
+        
+      IMG.center {
+      /*display: block;*/
+      margin-left: auto;
+      margin-right: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+  
+      h1,p {
+        text-align: center;
+      }
+      .text, .one, .two {
+        background:white;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(180, 173, 173, 0.8);
+        z-index: 1;
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 10% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+    </style>
+    <!-- flex-direction: column; виставляє по вертикалі, row по горизонталі -->
+  </head>
+  <body>
+    <h1>Вроджені якості</h1>
+    <p>(Когнітивні функції)</p>
+    <div class="container">
+      <div class="horiz">
+        <div class="imgT1" id="imgT1">
+            <img src="v_r1.png" id="raz" alt="картинка" width=70%>
+            <p>Світосприйняття:</p>
+              <p>Послідовність чи Хаотичність</p>
+              <div class="text"  id="one">             
+              </div>
+        </div> 
+        <div class="imgT2" id="imgT2">
+            <img src="v_e2.png" alt="картинка" width=70%>
+            <p>Джерело:</p>
+            <p>Ззовні чи Всередині</p> </div>
+              <div class="text"  id="two">              
+              </div>
+      </div>
+      <div class="horiz">
+        <div class="imgT3" id="imgT3">  
+            <img src="v_l3.png" alt="картинка" width=70%>
+            <p>Рішення:</p>
+            <p>Факти чи Настрій</p>
+              <div class="text"  id="three">              
+              </div>
+        </div>
+        <div class="imgT4" id="imgT4">  
+            <img src="v_s4.png" alt="картинка" width=70%>
+            <p>Інформація:</p>
+            <p>Конкретне чи Абстрактне</p>
+              <div class="text"  id="four">              
+              </div>
+        </div>
+      </div>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <p id="modalContent"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      var Svit = [
+        '<span style="font-size: 20px; color: black;">Послідовність</span>',
+        '<span style="font-size: 15px; color: maroon;">це внутрішній поклик до порядку, точності, збереження та передавання вже відомої інформації, рівномірне, послідовне виконання задач, та рух у поглиблення.  Завдяки цій рисі ви сприймаєте світ, загалом, як зрозумілий та стабільний</span>',
+        '<span style="font-size: 20px; color: black;">Хаотичність</span>',
+        '<span style="font-size: 15px; color: maroon; ">це схильність до постійного пошуку нового, інновацій, захоплень і вражень, здатність одночасно робити кілька справ, перестрибування та кидати їх не закінчивши, це рух на розширення і розвиток, більшість речей оцінюється «приблизно»</span>'
+        
+      ];
+      var Energ = [
+        '<span style="font-size: 20px; color: black;">Джерело сил всередині</span>',
+        '<span style="font-size: 15px; color: maroon;">Щоб надихнутись, відпочити, мотивуватись, та прийняти рішення людині з цією рисою треба мати час наодинці з собою. Для неї справді всі відповіді всередині, але потрібна можливість зосередитись та почути їх. У них є внутрішнє відчуття своєї цінності</span>',
+        '<span style="font-size: 20px; color: black;">Джерело сил ззовні</span>',
+        '<span style="font-size: 15px; color: maroon; ">Людині з цією стороною риси отримує відповіді, сили, настрій, ідеї від зовнішніх стимулів. Навколо неї має щось відбуватися, якийсь двіж, події, люди. Щоб оформити думки і прийняти рішення треба промовити їх вголос і лише тоді самому почути їх. Щоб відчути себе цінним їм треба отримати схвалення ззовні</span>'
+      ];
+      var Rish = [
+        '<span style="font-size: 20px; color: black;">Факти</span>',
+        '<span style="font-size: 15px; color: maroon;">Ті, хто мають схильність до аналізування, спираються на факти, намагаючись об’єктивно оцінити вигоди, врахувати різні впливи та умови, доказують та аргументують своє рішення та акцентують увагу на причино-наслідкових зв’язках. Загалом ця схильність впливає на манеру спілкування додаючи їй більше різкості та прямолінійності висловлювань</span>',
+        '<span style="font-size: 20px; color: black;">Настрій</span>',
+        '<span style="font-size: 15px; color: maroon; ">Ті люди, що керуються у прийнятті рішень настроєм більше уваги приділяють емоційному стану оточуючих та себе самих. Досить тонко відчуваючи настрій співрозмовника і те як рішення вплине на їх самопочуття. У спілкуванні це проявляється більш м’якими інтонаціями та відчуттям емоційної підтримки</span>'
+      ];
+      var Info = [
+        '<span style="font-size: 20px; color: black;">Конкретика</span>',
+        '<span style="font-size: 15px; color: maroon;">Маючи схильність до конкретики людина проявляє більше практичності, вона «будує» свій світ з речей які бачить, чує, може помацати та виміряти. Довіряє своєму досвіду і активно його накопичує змалечку. Сюди ж додається вміння добре відчуває своє тіло і його стани, бо, все, що йде через сенсорні канали приймається і аналізується</span>',
+        '<span style="font-size: 20px; color: black;">Абстракція</span>',
+        '<span style="font-size: 15px; color: maroon;">Схильність до теоретичності дарує розвинуту уяву та здатність оперувати абстрактними категоріями. Яскравість фантазії, образність мислення, легке й швидке засвоєння теоретичної інформації. Також властиве занурення в думки, які можуть дуже довго не переходити в дії, розсіяна увага і відключення від зовнішнього світу, цікавість до «некорисних» справ</span>',
+        
+      ];
+
+      var imgT1 = document.getElementById('imgT1');
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      var imgT4 = document.getElementById('imgT4');
+
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+
+      imgT1.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Svit.join('<br>');
+      });
+      imgT2.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Energ.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Rish.join('<br>');
+      });
+      imgT4.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Info.join('<br>');
+      });
+
+      close.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

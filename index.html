@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  background-image: url('006.jpg');
+  background-repeat: repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  font-family: Segoe Script, sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100%;
+}
+.vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh; /* Займає 100% висоти видимого екрану */
+  justify-content: flex-end; /* Розташовує зображення в нижній частині контейнера */
+  }
+img {
+  height: auto;
+  max-height: 100vh; /* Зображення не буде виходити за межі видимого екрану */
+  width: 100%;
+  object-fit: contain; /* або object-fit: cover; в залежності від ваших вимог */
+}
+
+.center img {
+  height: auto;
+  width: auto;
+  object-fit: cover;
+  object-position: center bottom;
+}
+.clickable-area {
+      position: absolute;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+</style>
+</head>
+<body>  
+  <div class="container">
+  <div class="vertical">
+    <div class="niz"><img class="image-left" src="kominnaya lev.png" height=100% alt="Your Image" id="mapImage" />
+      <div class="clickable-area" style="top: 86%; left: 10%; width: 13%; height: 11%;" onclick="window.open('Fon.html', '_blank')"></div>
+      <div class="clickable-area" style="top: 63%; left: 10%; width: 13%; height: 22%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 50%; left: 10%; width: 13%; height: 10%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 41%; left: 9%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 28%; left: 13%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 15%; left: 9%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 3%; left: 12%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+    </div>
+  </div>
+  <div class="vertical">
+    <div class="niz"><img class="center" src="kominnaya_cnt.png" alt="Your Image" id="mapImage" />
+      <div class="clickable-area" style="top: 67%; left: 39%; width: 22%; height: 30%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 51%; left: 45%; width: 10%; height: 11%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 53%; left: 38%; width: 6%; height: 9%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 53%; left: 56%; width: 6%; height: 9%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 33%; left: 45%; width: 10%; height: 17%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 25%; left: 44%; width: 12%; height: 6%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 13%; left: 44%; width: 12%; height: 6%;" data-href="Fon.html"></div>
+    </div>
+  </div>
+  <div class="vertical">
+    <div class="niz"><img class="image-right" src="kominnaya prv.png" alt="Your Image" id="mapImage" />
+      <div class="clickable-area" style="top: 63%; left: 76%; width: 13%; height: 33%;" data-href="Fon.html"></div>    
+      <div class="clickable-area" style="top: 51%; left: 76%; width: 13%; height:11%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 41%; left: 78%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 28%; left: 75%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 15%; left: 78%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 3%; left: 76%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+    </div>
+  </div>
+</div>
+<script>
+  const areas = document.querySelectorAll('.clickable-area');
+  const image = document.getElementById('mapImage');
+
+  areas.forEach((area) => {
+    area.addEventListener('click', (event) => {
+      event.preventDefault(); // Забороняє перехід за посиланням
+      const href = event.target.getAttribute('data-href');
+      window.location.href = href;
+    });
+
+    // Забезпечте відносні координати для кожної області
+    const relativeTop = parseFloat(area.style.top) / image.clientHeight * 100;
+    const relativeLeft = parseFloat(area.style.left) / image.clientWidth * 100;
+    const relativeWidth = parseFloat(area.style.width) / image.clientWidth * 100;
+    const relativeHeight = parseFloat(area.style.height) / image.clientHeight * 100;
+
+    // Встановіть відносні координати
+    area.style.top = `${relativeTop}%`;
+    area.style.left = `${relativeLeft}%`;
+    area.style.width = `${relativeWidth}%`;
+    area.style.height = `${relativeHeight}%`;
+  });
+</script>
+</body>
+</html>

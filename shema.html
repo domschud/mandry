@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url('005n.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+    }
+  
+    IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%;
+      height: 90%;
+    }
+  
+    .image {
+      position: relative;
+      display: inline-block;
+      margin-bottom: auto;
+    }
+  
+    .clickable-area {
+      position: absolute;
+      border: 2px solid red;
+      pointer-events: auto;
+      cursor: pointer;
+    }
+  </style>
+  
+  <body>
+    <h1>Схематична карта блогу</h1>
+    <div class="container">
+      <div class="image">
+        <img class="center" src="shm_prz.png" alt="Your Image" id="mapImage">
+        <div class="clickable-area" style="top: 79%; left: 5%; width: 17%; height: 14%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 57%; left: 5%; width: 17%; height: 20%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 43%; left: 7%; width: 13%; height: 8%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 23%; left: 13%; width: 25%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 13%; left: 13%; width: 25%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 0%; left: 17%; width: 21%; height: 7%;" data-href="Fon.html"></div>
+
+        <div class="clickable-area" style="top: 88%; left: 42%; width: 15%; height: 7%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 70%; left: 32%; width: 36%; height: 9%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 57%; left: 29%; width: 21%; height: 7%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 57%; left: 50%; width: 21%; height: 7%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 43%; left: 33%; width: 33%; height: 7%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 33%; left: 33%; width: 16%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 33%; left: 50%; width: 16%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 23%; left: 39%; width: 21%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 13%; left: 39%; width: 21%; height: 6%;" data-href="Fon.html"></div>
+
+        <div class="clickable-area" style="top: 58%; left: 78%; width: 16%; height: 35%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 43%; left: 79%; width: 13%; height: 8%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 23%; left: 62%; width: 25%; height: 6%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 13%; left: 62%; width: 25%; height: 6%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 0%; left: 62%; width: 21%; height: 7%;" data-href="Fon.html"></div>
+        <!-- Додайте інші .clickable-area за потреби -->
+      </div>
+    </div>
+<script>
+  const areas = document.querySelectorAll('.clickable-area');
+  const image = document.getElementById('mapImage');
+
+  areas.forEach((area) => {
+    area.addEventListener('click', (event) => {
+      event.preventDefault(); // Забороняє перехід за посиланням
+      const href = event.target.getAttribute('data-href');
+      window.location.href = href;
+    });
+
+    // Забезпечте відносні координати для кожної області
+    const relativeTop = parseFloat(area.style.top) / image.clientHeight * 100;
+    const relativeLeft = parseFloat(area.style.left) / image.clientWidth * 100;
+    const relativeWidth = parseFloat(area.style.width) / image.clientWidth * 100;
+    const relativeHeight = parseFloat(area.style.height) / image.clientHeight * 100;
+
+    // Встановіть відносні координати
+    area.style.top = `${relativeTop}%`;
+    area.style.left = `${relativeLeft}%`;
+    area.style.width = `${relativeWidth}%`;
+    area.style.height = `${relativeHeight}%`;
+  });
+</script>
+</body>
+</html>

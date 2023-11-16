@@ -1,87 +1,81 @@
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-body {
-  background-image: url('006.jpg');
-  background-repeat: repeat;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  font-family: Segoe Script, sans-serif;
-  overflow: hidden;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  width: 100%;
-  height: 100%;
-}
-.vertical {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100vh; /* Займає 100% висоти видимого екрану */
-  justify-content: flex-end; /* Розташовує зображення в нижній частині контейнера */
-  }
-img {
-  height: auto;
-  max-height: 100vh; /* Зображення не буде виходити за межі видимого екрану */
-  width: 100%;
-  object-fit: contain; /* або object-fit: cover; в залежності від ваших вимог */
-}
-
-.center img {
-  height: auto;
-  width: auto;
-  object-fit: cover;
-  object-position: center bottom;
-}
-.clickable-area {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-image: url('006.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+    }
+  
+    h1 {
+      text-align: center;
+    }
+  
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+    }
+  
+    IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 63%;
+      height: 63%;
+    }
+  
+    .image {
+      position: relative;
+      display: inline-block;
+      margin-bottom: auto;
+    }
+  
+    .clickable-area {
       position: absolute;
       pointer-events: auto;
       cursor: pointer;
     }
-</style>
-</head>
-<body>  
-  <div class="container">
-  <div class="vertical">
-    <div class="niz"><img class="image-left" src="kominnaya lev.png" height=100% alt="Your Image" id="mapImage" />
-      <div class="clickable-area" style="top: 86%; left: 10%; width: 13%; height: 11%;" onclick="window.open('bilplym.html', '_blank')"></div>
-      <div class="clickable-area" style="top: 63%; left: 10%; width: 13%; height: 22%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 50%; left: 10%; width: 13%; height: 10%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 41%; left: 9%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 28%; left: 13%; width: 12%; height: 7%;" data-href="Fon.html"></div>
-      <div class="clickable-area" style="top: 15%; left: 9%; width: 12%; height: 7%;" data-href="Fon.html"></div>
-      <div class="clickable-area" style="top: 3%; left: 12%; width: 12%; height: 7%;" data-href="Fon.html"></div>
-    </div>
-  </div>
-  <div class="vertical">
-    <div class="niz"><img class="center" src="kominnaya_cnt.png" alt="Your Image" id="mapImage" />
-      <div class="clickable-area" style="top: 67%; left: 39%; width: 22%; height: 30%;" data-href="bilplym.html"></div>
+  </style>
+  
+  <body>
+    <h1>Карта блогу</h1>
+    <div class="container">
+      <div class="image">
+        <img class="center" src="kominnayaall.png" alt="Your Image" id="mapImage">
+        <div class="clickable-area" style="top: 86%; left: 21%; width: 13%; height: 11%;" onclick="window.open('bilplym.html', '_blank')"></div>
+        <div class="clickable-area" style="top: 63%; left: 21%; width: 13%; height: 22%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 50%; left: 21%; width: 13%; height: 10%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 41%; left: 19%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
+        <div class="clickable-area" style="top: 28%; left: 24%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 15%; left: 19%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+        <div class="clickable-area" style="top: 3%; left: 23%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+
+        <div class="clickable-area" style="top: 67%; left: 39%; width: 22%; height: 30%;" data-href="bilplym.html"></div>
       <div class="clickable-area" style="top: 51%; left: 45%; width: 10%; height: 11%;" data-href="bilplym.html"></div>
       <div class="clickable-area" style="top: 53%; left: 38%; width: 6%; height: 9%;" data-href="Fon.html"></div>
       <div class="clickable-area" style="top: 53%; left: 56%; width: 6%; height: 9%;" data-href="Fon.html"></div>
       <div class="clickable-area" style="top: 33%; left: 45%; width: 10%; height: 17%;" data-href="Fon.html"></div>
       <div class="clickable-area" style="top: 25%; left: 44%; width: 12%; height: 6%;" data-href="Fon.html"></div>
       <div class="clickable-area" style="top: 13%; left: 44%; width: 12%; height: 6%;" data-href="Fon.html"></div>
+
+      <div class="clickable-area" style="top: 63%; left: 65%; width: 13%; height: 33%;" data-href="bilplym.html"></div>    
+      <div class="clickable-area" style="top: 51%; left: 65%; width: 13%; height:11%;" data-href="bilplym.html"></div>
+      <div class="clickable-area" style="top: 41%; left: 68%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
+      <div class="clickable-area" style="top: 28%; left: 63%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
+      <div class="clickable-area" style="top: 15%; left: 68%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+      <div class="clickable-area" style="top: 3%; left: 64%; width: 12%; height: 7%;" data-href="Fon.html"></div>
+        <!-- Додайте інші .clickable-area за потреби -->
+      </div>
     </div>
-  </div>
-  <div class="vertical">
-    <div class="niz"><img class="image-right" src="kominnaya prv.png" alt="Your Image" id="mapImage" />
-      <div class="clickable-area" style="top: 63%; left: 76%; width: 13%; height: 33%;" data-href="bilplym.html"></div>    
-      <div class="clickable-area" style="top: 51%; left: 76%; width: 13%; height:11%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 41%; left: 78%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 28%; left: 75%; width: 12%; height: 7%;" data-href="bilplym.html"></div>
-      <div class="clickable-area" style="top: 15%; left: 78%; width: 12%; height: 7%;" data-href="Fon.html"></div>
-      <div class="clickable-area" style="top: 3%; left: 76%; width: 12%; height: 7%;" data-href="Fon.html"></div>
-    </div>
-  </div>
-</div>
 <script>
   const areas = document.querySelectorAll('.clickable-area');
   const image = document.getElementById('mapImage');

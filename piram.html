@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url('002.jpg');
+        background-repeat: repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Segoe Script, sans-serif;
+      }
+      
+      h1 {
+      text-align: center;
+      }
+      .container {
+        display: flex; justify-content: center; flex-direction: column; 
+        margin: 1%;
+        width: auto;
+        /*max-height: 100vh;*/
+        /*border: 2px solid red;*/
+        align-items: stretch; /* Розтягує висоту на всю висоту вікна */
+        height: 85vh; /* Висота вікна */
+        
+      }
+      .imgT1,.imgT2,.imgT3,.imgT4,.imgT5,.imgT6,.imgT7 {
+        position: relative;
+        margin-bottom: 0px; /* Додавання відступу між зображеннями */
+        flex-grow: 2; /* Займати доступний вільний простір в container */
+      }
+
+      IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 70%; /* Маштабування зображення по ширині */
+        height: 100%; /* Маштабування зображення по висоті */
+        cursor: pointer;
+      }
+    
+      .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(180, 173, 173, 0.8);
+        z-index: 1;
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;        
+       
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+
+  </style>
+    
+  </head>
+  <body>
+  <h1>Етапи розвитку</h1>
+<div class="container">
+  <div class="imgT" id="imgT7">
+    <img class="center" src="pir_t_vl7.png" />
+ </div>
+  <div class="imgT" id="imgT6">
+    <img class="center" src="pir_t_vl6.png" />
+  </div>
+  <div class="imgT" id="imgT5">
+    <img class="center" src="pir_t_vl5.png" />
+  </div>
+  <div class="imgT" id="imgT4">
+    <img class="center" src="pir_t_vl4.png" />
+  </div>
+  <div class="imgT" id="imgT3">
+    <img class="center" src="pir_t_vl3.png" />
+  </div>
+  <div class="imgT" id="imgT2">
+    <img class="center" src="pir_t_vl2.png" />
+  </div>
+  <div class="imgT" id="imgT1">
+    <img class="center" src="pir_t_vl1.png" />
+  </div>
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" id="close">&times;</span>
+      <p id="modalContent"></p>
+    </div>
+  </div>
+  <script>
+    var Bez = ['<span style="font-size: 20px; color: black;">Формує право жити й контактувати</span>',
+        '<span style="font-size: 15px; color: maroon;">Період побудови відчуття базової безпеки та довіри світу. Зв’язок з мамою. Дає право відчувати енергію й інтегрувати тілесні відчуття та емоції. При несприятливих умовах відбувається зміщення в  переконаннях, які заставляють або відгороджуватись від  життя, максимально уникаючи контактування із зовнішнім світом та новим досвідом або навпаки з головою пірнати у вихор життя та подій в пошуку емоційних вражень. Залишає дуже глибокий слід у базовому сприйнятті своєї особистості: право чути та відчувати себе прийнятим, просто за те, що існуєш. А також право знати, що інші хочуть бути з тобою.</span>'];
+    var Potr = ['<span style="font-size: 20px; color: black;">Створюється право мати і відчувати свої потреби</span>',
+        '<span style="font-size: 15px; color: maroon;">В цей час формується здатність усвідомлювати та заявляти про свої потреби. А також сприймання турботи від оточуючих. Це період збалансування між імпульсом пізнання і потребою у відпочинку. При несприятливих умовах людина постійно відчуває або відчай нерозуміння ані своїх потреб ані способів їх вдовольнити або недовіру і впевненість, що оточуючі йому не дадуть потрібне за жодних умов. Цей період дає право говорити так і ні, бути творчим, оригінальним й керуватися своїми ритмами. Здатність самостійно діяти задля задоволення своїх потреб і відкладати їх, при необхідності. Ще цей період закладає право відчувати задоволення та виражати недовіру й протест, якщо очікування не справджуються.</span>'];
+    var Avt = ['<span style="font-size: 20px; color: black;">Формування права бути автономним і незалежним</span>',
+        '<span style="font-size: 15px; color: maroon;">В цей період людина вчиться відчувати імпульс цікавості, зберігаючи контакт та самостійно рухатись за своїми ідеями, досліджуючи світ.  Також формується право просити про допомогу. При несприятливих умовах поведінка зміщується або в розгубленість, коли імпульси та почуття легко втрачаються чи не розшифровуються(а увага постійно перескакує), або людина постійно уникає неприємних переживань і відчуття безпорадності тим, що цілеспрямовано змінює фокус та тему розмов. Також в цей час закладається емоційна автономія, відчуття свого центру й кордонів й задоволення від активності. Сюди ж відноситься здатність балансувати між безпекою та пригодами та диференціювати різні види діяльності.</span>'];
+    var Vol = ['<span style="font-size: 20px; color: black;">Формування права мати намір й проявляти впертість</span>',
+        '<span style="font-size: 15px; color: maroon;">Тут формується здатність планувати, вибирати напрям, використовувати свою силу. В тому числі для досягнення цілей і впливу на оточуючих. Також право пишатися здатністю витримати, бути конструктивним, впевненим, терплячим. При несприятливих умовах поведінка схиляється або до жертовності, відмови від своєї сили й вибору задля «приємності та корисності» для оточуючих, або в осуд оточуючих, прагнення завжди бути найсильнішим, бо лише це дає впевненість. Це період закладання самовпевненості і спокою у сприйнятті сили інших людей, здатності одночасно відчувати кілька емоцій, а також переконань «що є хороше, а що погане».</span>'];
+    
+    var Sex = ['<span style="font-size: 20px; color: black;">Формування права відчувати любов та сексуальність</span>',
+        '<span style="font-size: 15px; color: maroon;">В цей період закладається здатність підтримувати стосунки (баланс між коханням й чуттєвістю) та опановувати сімейні ролі. Також право проявляти співчуття, ніжність та дружбу без сексуалізації. При несприятливих умовах людина або заперечує свою чуттєвість і сексуальність, дозволяючи собі лише романтичні й платонічні почуття, або заперечує романтично-платонічні, приймаючи для себе лише чуттєві й сексуальні почуття та дії. Ще тут створюється право на дослідження свого тіла, рольова ідентифікація, особисті межі та здатність отримувати задоволення від своєї сексуальності, поважати свою любов і діяти із своїх почуттів.</span>'];
+    
+    var Pog = ['<span style="font-size: 20px; color: black;">Формування права мати власні міркування</span>',
+        '<span style="font-size: 15px; color: maroon;">Закладається здатність формулювати та проявляти свої переконання, цінності та правила. А також логічне мислення та здатність приймати рішення з врахуванням культурних норм. При несприятливих умовах в цей період людина або не може сформувати свої погляди й пасивно протиставить себе оточуючим, або поводиться занадто самовпевнено й вперто, бо «бути правим» стає надто важливим. Це час для формування когнітивно-раціональної картини світу, перевірки думок реальністю, освоєння поведінки у різних соціальних контекстах. А також права задавати питання, відстоювання своїх думок й правил та змінювати погляди при появі нових фактів.</span>'];
+    
+    var Soc = ['<span style="font-size: 20px; color: black;">Формування права бути повноцінною частиною групи, з можливістю діяти та конкурувати</span>',
+        '<span style="font-size: 15px; color: maroon;">В цей період закладається баланс між бути кращім, особливим та одним з команди. А також право реалізовуватися, змагатися, допомагати проявлятися іншим. При несприятливих умовах поведінка зміщується або у стратегію «бути як усі» в групі, не даючи нікому виділятися або в постійну конкуренція з оточуючими (й самим собою) за найкращі результати. В цей період формується право мати своє місце в ієрархії і відстоювати його, сприйняття і проживання періодів інтенсивної конкуренції і повного занурення у власні інтереси, розвиток почуття особистої відповідальності та право як проявляти себе так і не робити цього</span>'];
+
+    var imgT1 = document.getElementById('imgT1');
+    var imgT2 = document.getElementById('imgT2');
+    var imgT3 = document.getElementById('imgT3');
+    var imgT4 = document.getElementById('imgT4');
+    var imgT5 = document.getElementById('imgT5');
+    var imgT6 = document.getElementById('imgT6');
+    var imgT7 = document.getElementById('imgT7');
+
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modalContent');
+    var close = document.getElementById('close');
+
+    imgT1.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Bez.join('<br>');
+    });
+
+    imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Potr.join('<br>');
+    });
+
+    imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Avt.join('<br>');
+    });
+
+    imgT4.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Vol.join('<br>');
+    });
+
+    imgT5.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Sex.join('<br>');
+    });
+
+    imgT6.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Pog.join('<br>');
+    });
+
+    imgT7.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Soc.join('<br>');
+    });
+
+    close.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  </body>
+</html>

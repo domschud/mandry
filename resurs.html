@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('002.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+   
+      .container {
+      /*border: 2px solid #5c7058;*/
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+
+      .horiz {
+      /*border: 2px solid #7db5d6;*/
+      margin: 1px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 45%; /* Змінено на max-width */
+      height: 85vh;
+      position: relative;
+      display: inline-block;
+      margin-right: 0; /* Додано margin-right для відстані між контейнерами */
+      margin-top: 0;
+      }
+
+      .imgT1,
+      .imgT3 {
+      margin: 3px;
+      cursor: pointer;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      max-height: 60vh;
+      width: auto;
+      object-fit: contain;
+      }
+      .imgT2,
+      .imgT4 {
+      margin: 3px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 60vh;
+      width: auto;
+      object-fit: contain;
+      }
+
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 6%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(180, 173, 173, 0.8);
+      z-index: 1;
+      }
+      .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 70%;
+      position: relative;
+      }
+      .close {
+      color: red;
+      cursor: pointer;
+      text-decoration: underline;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      }
+      .fixed-image {
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="Fon BilPlym.html">
+        <img src="nazad.png" alt="До карти" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Внутрішні ресурси</h1>
+    <img class="center" src="osb.png" alt="Дзеркало" style="height: 10%;" />
+    <div class="container">
+        <div class="horiz">
+            <div class="imgT1" id="imgT1">
+            <img src="zml_tb.png" alt="картинка" width=60%>
+            </div>
+            <div class="imgT2" id="imgT2">
+            <img src="ogn_tb.png" alt="картинка" width=60%>
+            </div>
+        </div>
+        <div class="horiz">
+            <div class="imgT3" id="imgT3">  
+            <img src="vod_tb.png" alt="картинка" width=60%>
+            </div>
+            <div class="imgT4" id="imgT4">  
+            <img src="vzd_tb.png" alt="картинка" width=60%>
+            </div>
+        </div>
+    </div>
+      <div class="modal" id="modal">
+        <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <p id="modalContent"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      var Fiz= [
+        '<span style="font-size: 20px; color: black;">Фізичний</span>',
+        '<span style="font-size: 15px; color: maroon;">Матеріальне, все, що пов’язане з тілом, конкретика, вчинки, дії. А також гроші, побут і рутинні справи, здоров’я, праця, відчуття реальності, взаємодія із фізичним світом, робота, порядок, сон. </span>',
+        '<span style="font-size: 15px; color: maroon;">Ознаки активованості: гарне фізичне самопочуття, здоров’я, тонус у тілі, спортивність, повноцінне харчування та сон, частіше відчувається бадьорість та запас сил, відчуття, що упоралися з фізичним навантаженням, швидко відновлюєте сили, та можете розраховувати на свою витривалість. </span>'
+                
+      ];
+      var Tvor = [
+        '<span style="font-size: 20px; color: black;">Творчий</span>',
+        '<span style="font-size: 15px; color: maroon;">Спонтанний прояв себе, самовираження, активність, пристрасть, азарт. А також творчість, активний рух, хаотичність дій, спорт, енергійність, зухвалість.</span>',
+        '<span style="font-size: 15px; color: maroon;">Ознаки активованості: здатність проявляти себе та свої ідеї у зовнішньому світі. Створення видимих/чутних/відчутних витворів, формулювання та матеріалізація ідей у будь-якому вигляді. Нові способи рішення, індивідуальний підхід, креативність.</span>'
+      ];
+      var Vod = [
+        '<span style="font-size: 20px; color: black;">Емоційний</span>',
+        '<span style="font-size: 15px; color: maroon;">Переживання, відчуття, зміна настрою, чутливість, емоційність. А також почуття, м’якість, примхливість, безтурботність, пристосування, грайливість, сприйнятливість, гнучкість, обтікання чи вислизання.  </span>',
+        '<span style="font-size: 15px; color: maroon;">Ознаки активованості: життєрадісність, часто гарний настрій й легкість у його відновленні, емпатія, готовність підтримати іншу людину, оптимістичність в оцінюванні подій, коли ваш світ і емоції більше позитивні та наповнюють і допомагають вам у повсякденних справах.</span>'
+      ];
+      var Ment = [
+        '<span style="font-size: 20px; color: black;">Ментальний</span>',
+        '<span style="font-size: 15px; color: maroon;">Думки, переконання, свідомі рішення, відповідальність, розум. А також плани, дорослість, самостійність, незалежність, свідомий та раціональний підхід.</span>',
+        '<span style="font-size: 15px; color: maroon;">Ознаки активованості: те, чим зазвичай зайнята свідомість, обдумування, аналітика, спостерігання та  усвідомлення хто-що-де робить і що відбувається, здоровий глузд, зважене прийняття рішень, логічні висновки, розкладання по полицях, гарне засвоєння потоків інформації, самоусвідомлення, розуміння абстракцій і теорій.</span>'
+        
+      ];
+
+      var imgT1 = document.getElementById('imgT1');
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      var imgT4 = document.getElementById('imgT4');
+
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+
+      imgT1.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Fiz.join('<br>');
+      });
+      imgT2.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Tvor.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Vod.join('<br>');
+      });
+      imgT4.addEventListener('click', function() {
+        modal.style.display = 'block';
+        modalContent.innerHTML = Ment.join('<br>');
+      });
+
+      close.addEventListener('click', function() {
+        modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+          modal.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
+</html>

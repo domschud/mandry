@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .container {
+      /*border: 2px solid #5c7058;*/
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="Fon BilPlym.html">
+        <img src="nazad.png" alt="До карти" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Переконання</h1>
+    <img class="center" src="polka dl per.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+        <!-- Ваш текст буде виводитися тут -->
+   </div>
+    </div>
+    <script>
+      var Perec = [
+      '<span style="font-size: 20px; color: black;">Це стійке уявлення про якесь явище чи процес</span>',
+      '<span style="font-size: 15px; color: maroon;">але ще…</span>'  
+      ]     
+      var One = ['<span style="font-size: 15px; color: maroon;">- Це ті опори від яких ми відштовхуємося в сприйнятті світу, себе, подій, оцінюємо що добре, а що погане (ми спираємося на них, як на землю,  відштовхуючись, щоб рухатись)</span>']
+      var Two = ['<span style="font-size: 15px; color: maroon;">- Переконання створюють особливі, індивідуальні ландшафти внутрішнього світу, де відбувається більшість подій, які ми можемо свідомо побачити, взаємодіяти та трансформувати</span>']        
+      var Three = ['<span style="font-size: 15px; color: maroon;">- Це елементи, які досить важко піддаються змінам: якщо звертатися до них напряму, то це буде схоже на вмовляння водоспаду текти вгору, або гору посунутися (але прикладаючи певні зусилля їх можна переписати)</span>']        
+      var Four = ['<span style="font-size: 15px; color: maroon;">- Більша частина переконань створюються несвідомо в дитинстві з багаторазового повторення якихось тверджень та дій оточуючих, чи наших висновків щодо цього. І вони є стосовно більшості речей з якими ми маємо справу</span>']        
+      var Five = ['<span style="font-size: 15px; color: maroon;">- Переконання можуть як давати доступ до внутрішніх ресурсів, так і закривати їх, а зміна переконань відповідно може змінити можливості та наявність сил на певні дії</span>']        
+      var Six = ['<span style="font-size: 15px; color: maroon;">- Сприйняття метафор не універсальне, у різних людей значення може суттєво відрізнятися</span>',        
+      '<span style="font-size: 15px; color: maroon;">Наприклад, в ландшафтах,  для одної людини гора символізує мету та успіх, для іншої це незмінні традиції та захисні межі, або навпаки тяжка праця та марні зусилля</span>'
+      ]
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + Perec.join('<br>') + '<br><br>' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>');        
+    </script>
+  </body>
+</html>

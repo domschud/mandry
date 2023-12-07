@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url('004.jpg');
+        background-repeat: repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Segoe Script, sans-serif;
+        }
+        h1 {
+        text-align: center;
+        margin-top: 1px;
+        }
+        .container {
+        display: flex; flex-direction: column; 
+        justify-content: center;
+        margin: 1%;
+        width: auto;
+        /*max-height: 100vh;*/
+        /*border: 2px solid red;*/
+        align-items: stretch; /* Розтягує висоту на всю висоту вікна */
+        height: 70vh; /* Висота вікна */
+        justify-content: flex-start;
+        margin-top: 0;
+        }
+        .horiz{
+        display: flex; flex-direction: row; justify-content: center;
+        /*border: 2px solid rgb(105, 33, 119);*/
+        height: 30vh;        
+        }
+        .imgT1,.imgT2,.imgT3 {
+        position: relative;
+        margin-bottom: 5%; /* Додавання відступу між зображеннями */
+        max-height: 30%;   
+        }
+        .imgT {
+        display: flex; flex-direction: column;
+        /*border: 2px solid rgb(197, 235, 29);*/
+        height: 70vh;
+        /*justify-content: center;*/
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+        .mal {
+        height: 20vh; 
+        }
+        .text {
+        text-align: center;
+        font-weight: bolder;
+        font-size: x-large;
+        justify-content: center;
+        margin-top: 1px;
+        }        
+        IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%; /* Маштабування зображення по ширині*/
+        height: auto; /* Маштабування зображення по висоті */
+        margin-top: 0;
+        }
+        .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+        cursor: pointer;
+      }
+  </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="Fon BilPlym.html">
+        <img src="nazad.png" alt="До карти" style="width: 35%;" />
+      </a>
+    </div>
+    <h1>Дика природа</h1>
+    <img class="center" src="polka dl gzn.png" alt="Дика природа"/>
+    <div class="container">
+      <div class="horiz">
+          <div class="imgT" id="imgT1">
+          <img class="mal" src="gizn_ros.png" id="raz" alt="картинка"/>          
+      </div>
+      <div class="imgT" id="imgT2">
+        <img class="mal" src="gizn_tvar.png"  alt="картинка"/>            
+      </div>
+      </div>
+      <div class="imgT" id="imgT3">
+          <img class="mal" src="gizn_emoc.png"  alt="картинка"/>          
+      </div>
+  </div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <p id="modalContent"></p>
+  </div>
+<script>
+  var Rosl = ['<span style="font-size: 20px; color: black;">Рослини внутрішнього світу</span>',
+      '<span style="font-size: 15px; color: maroon;">У кожного всередині є «Темний ліс» - місце, де живуть неприємні речі, все, що нам не подобається в собі, в оточенні, в подіях і спогадах – теми, риси характеру, закритиковані здібності чи бажання, неприємний досвід тощо. У «Ліс» можуть потрапити і ті хороші  здібності та риси характеру, яким ми просто не знайшли правильного застосування.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> Є «Улюблений сад» - те, що ми любимо і плекаємо у собі, піклуємося про врожай і приділяємо увагу розвитку – це можуть бути здібності і навички якими ми пишаємося, успіхи, вміння і таланти, звички. Ми отримуємо задоволення, коли розглядаємо це «щось» про себе.</span>',
+      '<span style="font-size: 15px; color: maroon;"> Деякі звички це якраз яскравий приклад – «само виросло», і це не про користь ;) Тобто в Душі багато чого росте, є те, що засіялося несвідомо, або випадково, але росте те, у чого там сприятливі умови як внутрішні, так і зовнішні.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Також рослини + рельєф утворюють «Таємне сховище» – уявне місце в душі, куди можна занурюватися для відпочинку, повноцінного відновлення, контактування з дикими, інстинктивними шарами несвідомого. Їх може бути кілька різних. Це місце має бути символом затишку і безпеки </span>'];
+  var Tvr = ['<span style="font-size: 20px; color: black;">Тварини внутрішнього світу</span>',
+      '<span style="font-size: 15px; color: maroon;">Тваринки внутрішнього світу – це цілі вбудовані програмки в несвідомому з прописаними в них набором функцій, моделями поведінки, реакціями під ситуацію, доступами до ресурсів, енергетичним запасом, тобто цілісний образ само сприйняття.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> Ми постійно і часто несвідомо користуємося такими образами для керування своїми станами та емоціями. Спокійний як слон, ігриве як кошеня, могутній і величний як лев, неповороткий як тюлень. Ці образи ближче до природних, інстинктивних шарів ніж соціальні ролі, вони про те, як ми відчуваємося всередині, а не ззовні. Первісні і язичницькі спільноти називали їх тотемами, природними духами, що наділяють людину силою і новими можливостями.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> Сильну або складну емоцію чи переживання можна розглянути, як певну тварину, щоб зрозуміти яку функцію вони несуть, до якої дії спонукають, чи від чого захищають.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Внутрішній дракон може символізувати гнів, агресію, бажання захистити свою територію – з ним можна боротися і задавлювати цю силу, а можна зрозуміти як він проявляється і подружитися.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Десь у глибинах темного лісу живе Звір – це справжнє тіньове створіння (тобто не те хороше, що туди випадково попало) функція якого саморуйнування, його не можна прибрати, але важливо знати, що він існує і не давати йому важелів управління і прийняття рішень. Віра людини, що вона недостатньо хороша, цінна, важлива щоб … це часто нашіптування цієї частини.</span>'];
+    var Emoc = ['<span style="font-size: 20px; color: black;">Емоційні дрібнички</span>',
+      '<span style="font-size: 15px; color: maroon;">- Більшість емоцій зароджується в фізичному тілі людини як реакція на те,  що відбувається з людиною в цей момент. І несуть в собі відповідний для ситуації об’єм сил на дію. Тобто емоція це жменька палива, з сигналом «реагуй».</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Немає емоцій – немає сил на рух (взагалі, не тільки фізичний). Непроявлена емоція зберігається тілом локально у м’язах в вигляді напруження.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Накопичені всередині емоції можуть вилізти поза контекстом ситуації, їм потрібен привід, а не розумна причина. Тобто їх прояві немає прямої логіки.</span>', 
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Гнів, це часто «зупинена» дія, нереалізований імпульс якось подіяти, через роздратування накопичується до гніву.</span>', 
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Можна відчувати кілька протилежних емоцій одночасно і до одного й того ж об’єкту.</span>', 
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Емоції пов’язані з неприємними спогадами можуть приховуватись під іншими, більш поверхневими. А також ховатись у тілі повністю зникаючи із свідомого рівня, наче їх і немає.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Для відновлення емоційного фону потрібні різноманітні враження. Подібно до рецепторів тіла, що втрачають чутливість при постійному впливі, емоції потребують переключення між різними сферами та подіями для ресурсного самопочуття.</span>', 
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Емоціям потрібен обмін, ними потрібно ділитись, передавати, вкладати в щось для інших людей: творчість, спілкування, навчання, допомога тощо.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">- Стани: апатія, засмучення, вигоряння може мати 2 причини: фізичну або емоційну втому. Фізичну відновлює сон, їжа, свій час, рух, відпочинок. Емоційну: нові враження та їх різноманіття. А також вивільнення накопичених всередині емоцій.</span>'];
+    
+    var imgT1 = document.getElementById('imgT1');
+    var imgT2 = document.getElementById('imgT2');
+    var imgT3 = document.getElementById('imgT3');
+    
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modalContent');
+    var close = document.getElementById('close');
+
+    imgT1.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Rosl.join('<br>');
+    });
+
+    imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Tvr.join('<br>');
+    });
+
+    imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Emoc.join('<br>');
+    });
+    close.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .container {   
+        width: 99%;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .horiz {    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap; 
+        margin-bottom: 15px;
+      }
+      .vert {      
+        width: 100%; 
+        box-sizing: border-box;
+        margin-bottom: 1px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .opis {    
+        text-align: center;
+        box-sizing: border-box;
+        width: 24%; 
+        min-width: 35vh;
+        margin: 2px;  
+      }
+      .content {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: column;
+      }
+      .center {
+        display: block;
+        margin: 0 auto;
+      }
+      .contr {
+        width: 100%;
+        height: 200px;
+        background-color: #ccc;
+        text-align: center;
+        margin-top: 5px;
+      }
+      h1, p {
+        text-align: center;
+      }
+      p1{
+        text-align: center;
+        font-weight: bolder;
+        font-size: larger;
+      }
+      .text {
+        background: white;
+      }     
+      .indented-text {
+        margin: 10px;
+      }
+      IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="atmos.html">
+        <img src="nazad.png" alt="Назад" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Цінності і дії</h1>
+    <div class="container">
+      <div class="horiz">
+        <div class="vert">
+          <div class="opis">
+            <img class="center" src="rac.png" style="width: 25%;"/>
+            <div class="content" id="rac"></div>
+          </div>  
+          <div class="opis">
+            <img class="center" src="hao.png" style="width: 25%;"/>
+            <div class="content" id="hao"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="zzo.png" style="width: 25%;"/>
+            <div class="content" id="zzo"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="zse.png" style="width: 25%;"/>
+            <div class="content" id="zse"></div>
+          </div>
+        </div>
+        <div class="vert">
+          <div class="opis">
+            <img class="center" src="kon.png" style="width: 25%;"/>
+            <div class="content" id="kon"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="abs.png" style="width: 25%;"/>
+            <div class="content" id="abs"></div>
+          </div>
+            <div class="opis">
+              <img class="center" src="nas.png" style="width: 25%;"/>
+            <div class="content" id="nas"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="fac.png" style="width: 25%;"/>
+            <div class="content" id="fac"></div>
+          </div>
+        </div>
+      </div>        
+      <div class="content" id="vag"></div>         
+    </div>
+    <script>       
+      var Rac = ['<span style="font-size: 17px; color: maroon;">Ця якість збирає і зберігає знання «пращурів», впорядковує життя, стабілізує та врівноважує систему. Часто питає «Навіщо». Їй потрібні ціль і послідовність. Її цінності все перевіряють на вічність та практичність.</span>',
+      '<span style="font-size: 20px; color: black;">Це – «Послідовність»</span>']
+
+      var Hao = ['<span style="font-size: 17px; color: maroon;">Якість налаштована на пошук нового, здатна витримати хаос у чистому вигляді і вибрати звідти все потрібне. Оскільки тут відсутня передбачуваність (вона не входить у цінності), її місце займає потенційна можливість та ймовірність.</span>',
+      '<span style="font-size: 20px; color: black;">Це – «Хаотичність»</span>']
+
+      var Zzo = ['<span style="font-size: 15px; color: maroon;">Ця якість може отримувати сили лише «навколо себе»: в людях, подіях, враженнях, коли щось відбувається (може не любити людей і втомлюватись від них, але знаходити сили наприклад у подорожах). Думки оформлюються при проговорюванні вголос. Суть в тому, що якщо навколо нічого не відбувається і не змінюється – то і відпочинку не буде.</span>',
+      '<span style="font-size: 20px; color: black;">Це – «Джерело ззовні»</span>']        
+
+      var Zse = ['<span style="font-size: 15px; color: maroon;">Ця якість діє не роздумуючи, вірить тому, що видно, чутно, відчутно на дотик. Цінує дію, слід, активність рішень і реакцій (дитина не чує слів, дивиться лише на реакцію – покарання за провину має відбутися негайно, а зітхання і лекція «що так більше не треба робити» - це сигнал, що насправді можна). Їй легко турбуватися про здоров’я, тіло, та орієнтуватися у своїх потребах.</span>',
+      '<span style="font-size: 20px; color: black;">Це - «Джерело всередині»</span>']    
+
+      var Kon = ['<span style="font-size: 15px; color: maroon;">Ця якість діє не роздумуючи, вірить тому, що видно, чутно, відчутно на дотик. Цінує дію, слід, активність рішень і реакцій (дитина не чує слів, дивиться лише на реакцію – покарання за провину має відбутися негайно, а зітхання і лекція «що так більше не треба робити» - це сигнал, що насправді можна). Їй легко турбуватися про здоров’я, тіло, та орієнтуватися у своїх потребах.</span>',
+      '<span style="font-size: 20px; color: black;">Це - «Конкретне»</span>']   
+
+      var Abs = ['<span style="font-size: 15px; color: maroon;">Ця якість думає, мріє, фантазує, міркує, інтуїтивно сприймає. Речові докази для неї не обов’язкові, а до дій взагалі переходить неохоче (навіть коли рішення прийняте й зрозуміле). Теорії та можливі варіанти будуть цікавіше фактів. Практична користь, заробіток, матеріальні цінності легко забуваються а свої потреби і самопочуття не відчуває. Легко забуде поїсти, поспати й зробити зарядку.</span>',        
+      '<span style="font-size: 20px; color: black;">Це – «Абстрактне»</span>'
+      ]
+      var Nas = ['<span style="font-size: 15px; color: maroon;">Живе спілкуванням, так добре відчуває стан іншої людини, хто що до кого відчуває, хто де ображений, зачеплений в почуттях, що не може повірити, що не всі люди так можуть. З нею діляться подробицями біографії і вподобаннями. Може змінити свої плани, щоб не засмутити вас, послухає, подбає про атмосферу в колективі. Їй важливі особисті подробиці і максимально душевне спілкування. Оцінює оточуючих за цими здібностями, їх сварять за м’якотілость і нелогічність рішень.</span>',        
+      '<span style="font-size: 20px; color: black;">Це - «Настрій»</span>'
+      ]
+      var Fac = ['<span style="font-size: 15px; color: maroon;">Не відчуває всі відтінки чужих станів, хоча може свідомо навчитись ставити себе на місце іншої людини і з особистого досвіду здогадатися про ймовірність якихось відчуттів у співрозмовника. Почуття аналізуються як і факти. Через це потрапляє у ситуації «недоречної» реакції, або має репутацію різких та грубуватих людей. Для цієї якості світ – це закономірності, схеми, моделі причин та наслідків. Рішення завжди мають конкретну причину «тому що», або вигоду, доцільність чи найменше з лих.</span>',        
+      '<span style="font-size: 20px; color: black;">Це – «Факти»</span>'
+      ]
+      var Vag = [
+      '<span style="font-size: 15px; color: maroon;">З віком та досвідом різниця у цих схильностях-якостях стає розмитою(крім сильно виражених рис). Ми навчаємося поводитись так, як більше схвалюється у цивілізованому світі: раціональне, передбачуване та практичнее.</span>',
+      '<span style="font-size: 20px; color: black;">Де ж залишається важливим знання про те, які якості саме наші вроджені?</span>',
+      '<span style="font-size: 15px; color: maroon;">- У стресовій ситуації злітають всі навчені моделі реагування;</span>', 
+      '<span style="font-size: 15px; color: maroon;">- У взаємодії з оточуючими. Нам властиво інтерпретувати мотиви інших людей за вродженим шаблоном і додумувати зміст – якщо щось очевидно для нас, то й інша людина робить чи не робить це щось навмисно;</span>', 
+      '<span style="font-size: 15px; color: maroon;">- У вихованні дітей, наприклад в корегуванні вимог до них. Вроджені когнітивні функції сильно впливать на потреби дитини і її здатність розуміти чи робити конкретні речі.</span>'  
+      ]       
+      document.getElementById('rac').innerHTML = '<div class="indented-text">' + Rac.join('<br>');
+      document.getElementById('hao').innerHTML = '<div class="indented-text">' + Hao.join('<br>');
+      document.getElementById('zzo').innerHTML = '<div class="indented-text">' + Zzo.join('<br>');
+      document.getElementById('zse').innerHTML = '<div class="indented-text">' + Zse.join('<br>');
+      document.getElementById('kon').innerHTML = '<div class="indented-text">' + Kon.join('<br>');
+      document.getElementById('abs').innerHTML = '<div class="indented-text">' + Abs.join('<br>');
+      document.getElementById('nas').innerHTML = '<div class="indented-text">' + Nas.join('<br>');
+      document.getElementById('fac').innerHTML = '<div class="indented-text">' + Fac.join('<br>');
+      document.getElementById('vag').innerHTML = '<div class="indented-text">' + Vag.join('<br>');
+    </script>
+  </body>
+</html>

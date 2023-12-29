@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url('004.jpg');
+        background-repeat: repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Segoe Script, sans-serif;
+        }
+        h1 {
+        text-align: center;
+        margin-top: 20px;
+        }
+        .container {
+        display: flex; flex-direction: column; 
+        justify-content: center;
+        margin: 1%;
+        width: auto;
+        align-items: stretch; /* Розтягує висоту на всю висоту вікна */
+        height: 70vh; /* Висота вікна */
+        justify-content: flex-start;
+        margin-top: 0;        
+        }
+        .horiz{
+        display: flex; flex-direction: row; justify-content: center;
+        height: 30vh;  
+            
+        }
+        .imgT1,.imgT2,.imgT3 {
+        position: relative;
+        margin-bottom: 5%;
+        max-height: 25%;   
+        }
+        .imgT4 {
+          position: relative;
+        margin-top: 15vh;
+        }
+
+        .imgT {
+        display: flex; flex-direction: column;
+        height: 70vh;        
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+        .mal {
+        height: 16vh; 
+        margin-top: 0;
+        }
+        .text {
+        text-align: center;
+        font-weight: bolder;
+        font-size: x-large;
+        justify-content: center;
+        margin-top: 1px;
+        }        
+        IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%; /* Маштабування зображення по ширині*/
+        height: auto; /* Маштабування зображення по висоті */
+        margin-top: 0;
+        }
+        .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body><div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2023/12/7.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+<div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+    <h1>Замок Принцеси</h1>
+    <img class="center" src="polka dl sub.png" alt="Cубособистості"/>
+    <div class="container">
+      <div class="horiz">
+          <div class="imgT" id="imgT1">
+          <img class="mal" src="tab_sub_prn.png" id="raz" alt="картинка"/>          
+      </div>
+      <div class="imgT" id="imgT2">
+        <img class="mal" src="tab_sub_krl.png"  alt="картинка"/>            
+      </div>
+      </div>
+      <div class="imgT" id="imgT3">
+          <img class="mal" src="tab_sub_chr.png"  alt="картинка"/>          
+      </div>
+      <div class="imgT" id="imgT4">
+        <a href="zamok_sup.html">
+          <img src="tab_dl_supr.png" alt="До карти" style="width: 150px;" />
+        </a>          
+    </div>
+  </div>
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" id="close">&times;</span>
+    <p id="modalContent"></p>
+  </div>
+<script>
+  var Rosl = ['<span style="font-size: 20px; color: black;">Принцеса – Я хочу/відчуваю</span>',
+      '<span style="font-size: 15px; color: maroon;">Дитяча субособистість – це стан відкритості всесвіту, новому, грі, навчанню та задоволенню від життя, власне це і є природній стан нашої особистості. Вона відповідає за доступ до емоцій, бажань, внутрішніх ресурсів, мотивів і імпульсів, а також всіх творчих процесів. Принцеса орієнтується на цікавість, внутрішнє хочу і вільно проявляє свої риси та характер.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> Також вона керує мотивацією (прокрастинацією теж) і наявністю сил на потрібну нам дію. Саме в цьому стані ми відпочиваємо, відновлюємося, надихаємося і відчуваємо себе собою.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Принцеса залишається активною на все життя, бо тільки вона має зв’язок із підсвідомим, бажаннями, мріями, життєвими силами і взагалі всією емоційною сферою (а також із страхами та відчуттям вразливості). Тобто не можна вирости/стати дорослим і відключити дитячу субособистість, але якщо вона задоволена і щаслива, то не заважає займатися всіма тими дорослими речами.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Її ключова ознака - це реакція «Я хочу» чи «Я не хочу»</span>'];
+  var Tvr = ['<span style="font-size: 20px; color: black;">Король-Королева – Я можу</span>',
+      '<span style="font-size: 15px; color: maroon;">Цю субособистість людина практично самостійно виховує (або не виховує) у себе в процесі росту і вона представляє собою здатність відключення емоцій для раціонального аналізу ситуації. І власне все. Цей стан потрібен виключно для ситуацій обговорення, домовленостей, прийняття рішень в кризовій чи стресовій ситуації, і, звісно, для вирішення конфліктів. Розум та максимально можлива об’єктивність. </span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> Може діяти у двох стратегіях: чоловічому – Король, і жіночому – Королева (цей поділ досить умовний, бо має перетини із критикуючим чи турботливим Чарівником, але з точки зору управління внутрішніми подіями більш доречний тут).</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;"> У Короля більша концентрація і фокусування на результаті. У Королеви – ширший масштаб і більше уваги до деталей й умов.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Ключові ознаки - Король-Королева завжди у часі «зараз» і віддають превагу позиції «Я можу».</span>'];
+    var Emoc = ['<span style="font-size: 20px; color: black;">Чарівник - Я повинен</span>',
+      '<span style="font-size: 15px; color: maroon;">Ця субособистість створюється автоматично (без участі свідомості) з образів найавторитетніших людей в дитинстві та моделей їх поведінки і відповідальна за внутрішній контроль, совість та приклад турботи. Щось схоже на шаблон, еталон з яким ми звіряємося, коли вирішуємо ми молодці чи ай-яй-яй, та звідки беремо послідовність дій, коли треба навчити чи опікуватись іншою людиною.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Фактично це бібліотека – зібрання законів, правил поведінки, рецептів та народної мудрості, переконань та упереджень. Сюди людина звертається за пошуком рішення, а у дорослому віці має можливість вже свідомо оцінювати записану реакцію і відмовитись від неї, шукаючи нове, суто своє рішення.</span>',
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">У цій бібліотеці є відділи навчально-критикуючі (з заборонами та покараннями), або турботливі (із підтримкою та допомогою), їх співвідношення дуже індивідуальне. </span>', 
+      '<br>',
+      '<span style="font-size: 15px; color: maroon;">Ключова ознака – вона завжди знає «Хто повинен робити …».</span>'];
+    
+    var imgT1 = document.getElementById('imgT1');
+    var imgT2 = document.getElementById('imgT2');
+    var imgT3 = document.getElementById('imgT3');
+    
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modalContent');
+    var close = document.getElementById('close');
+
+    imgT1.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Rosl.join('<br>');
+    });
+
+    imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Tvr.join('<br>');
+    });
+
+    imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Emoc.join('<br>');
+    });
+    close.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  </body>
+</html>

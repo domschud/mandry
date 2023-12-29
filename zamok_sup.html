@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+        border-radius: 10px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .sup {
+        width: 25%;
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }         
+    </style>
+  </head>
+  <body><div class="fixed-image">
+    <a href="zamok.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  </div>
+    <h1>Королівські суперечки</h1>
+    <img class="center" src="polka dl sub.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+    </div>
+    </div>
+    <script>         
+      var One = ['<span style="font-size: 15px; color: maroon;">Коли дві людини зустрічаються, контактування та взаємодія між ними може йти всього по кільком рівням: <span style="font-size: 20px; color: black;">Принцеса-Принцеса, Король-Королева, і Принцеса-Чарівник</span> (бо всі інші варіанти будуть супроводжуватися конфліктами та непорозуміннями). Звісно більшість переключень та підлаштувань у взаємодії відбувається несвідомо.</span>']
+      var Two = ['<span style="font-size: 15px; color: maroon;">По цим ознакам легко можна визначити хто у співрозмовника зараз керує парадом: <span style="font-size: 15px; color: black;">Принцеса</span> – «Ти повинен», «Я хочу, Я відчуваю», <span style="font-size: 15px; color: black;">Чарівник</span> - «Я повинен», «Я знаю, хто повинен це робити», <span style="font-size: 15px; color: black;">Король-Королева</span> «Ти мені, я тобі», «тут і зараз».</span>']        
+      var Three = ['<img src="pr_pr.png" class="sup" alt="принцеса"><span style="font-size: 15px; color: maroon;">Спілкування <span style="font-size: 20px; color: black;">Принцеса-Принцеса</span> буде схожою на гру - це отримання разом вражень, емоцій, насолоджування, разом, коли цікаво, або весело, або спокійно і нічого загалом не треба.</span>']        
+      var Four = ['<span style="font-size: 15px; color: maroon;"><img src="kr_kr.png" class="sup" alt="король"><span style="font-size: 20px; color: black;">Король-Королева</span> – це прийняття рішень, аналізування, раціональний погляд, домовленості, те, що називають діловим партнерством, але тут не буде емоцій (дружба, то вже дитина-дитина), вигода та обговорення, озвучування умов.</span>']        
+      var Five = ['<img src="ch_pr.png" class="sup" alt="чарівник"><span style="font-size: 15px; color: maroon;"><span style="font-size: 20px; color: black;">Чарівник-Принцеса</span> – це відповідальність за інших й авторитет з боку Чарівника і прийняття турботи, безпорадність, або навчання з боку Принцеси. Тут завжди хтось старший/більший, а хтось маленький/отримуючий. Особистість Чарівника може бути критикуючою або турботливою (в ідеалі і те і інше, але частіше якась модель переважає). Часто ця фігура вилітає в крайні положення гіперопікуюча або гіперкритикуюча. І це її голоси звучать в голові з похвалою і підтримкою чи навпаки з лайкою на себе.</span>']        
+      var Six = ['<span style="font-size: 15px; color: maroon;">В цій взаємодії обмін і баланс брати/давати нерівний сам по собі – хтось дає, хтось бере, але має повертати дещо інше. Простий приклад мати готує рідним обід, а очікує його задоволення чи похвалу своїй кулінарній майстерності. Це дуже індивідуально чим саме ваша субособистість може ділитися і дає зверх, а чого у неї не дуже багато і відновлюється довго. Але будь-яке неспівпадіння у запиті(несвідомому теж) з боку Принцеси і тим, що може дати (і очікує отримати за це) Чарівник призводить до конфлікту. Або насильне давання з боку Чарівника без запиту від Принцеси, буде зустрінуте агресією. </span>'
+      ]
+      var Sprch = [
+      '<span style="font-size: 20px; color: black;">Щодо інших взаємодій (саме тут і закопане ядро більшості конфліктів, що супроводжуватиме людину):</span>'
+      ]
+      var Vsm = ['<span style="font-size: 15px; color: maroon;">- Чарівник-Чарівник: не можуть знайти порозуміння, бо йде боротьба за владу. Той, хто сильніше виштовхуватиме другого в Принцесу (або один з співрозмовників просто вийде з контакту не погоджуючись) . Можуть об’єднувати зусилля лише опікуючись кимось третім, чи воюючи проти третього.</span>'
+      ]
+      var Dvt = ['<span style="font-size: 15px; color: maroon;">- коли один співрозмовник у Королі-Королеві і очікує спілкування на рівних, він не хоче щоб його ані критикували, ані навчали, ані годували чи жаліли – це призводить до непорозуміння. Вихід тільки у переході обох сторін з Чарівника у Короля/Королеву – щоб домовлятися.</span>'
+      ]        
+      var Dst = ['<span style="font-size: 15px; color: maroon;">- зворотний варіант, якась з сторін переключається в Принцесу з запитом (візьми за мене відповідальність, виріши, зроби) до Чарівника, а друга сторона не може(бо не має цього ресурсу) або хоче взаємодіяти на одному рівні.</span>'
+      ]
+      var Odnc = ['<span style="font-size: 15px; color: maroon;">Тобто конфлікт у побутовому спілкуванні може бути предметним - коли не поділили якусь «іграшку/благо», а може бути несвідомим через некоректність у очікуваннях та запитах до конкретного рівня/стану.</span>'
+      ]
+      var Dvnc = ['<span style="font-size: 15px; color: maroon;">- в звичайному побутовому спілкуванні на «важливе» висловлювання першою завжди включається емоційна реакція тої субособистоті, яка більше і частіше використовується. Але в стресовій – завжди керує Принцеса.</span>'
+      ]
+      var Trinc =['<span style="font-size: 15px; color: maroon;">- <span style="font-size: 15px; color: black;">загалом у конфліктній ситуації Король-Королева шукатимуть компроміс, Чарівник буде кричати, принижувати та обвинувачувати, а Принцеса просити допомоги й розуміння</span>. Але дистанціювання (подивитись на себе і ситуацію неначе ззовні) дозволяє свідомо переключати активну субособистість і не так особисто сприймати саму ситуацію.</span>'  
+      ]
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>')+ '<br><br>'+ Sprch.join('<br>')+ '<br><br>' + Vsm.join('<br>') + '<br><br>' + Dvt.join('<br>') + '<br><br>' + Dst.join('<br>')+ '<br><br>' + Odnc.join('<br>')+ '<br><br>' + Dvnc.join('<br>') + '<br><br>' + Trinc.join('<br>');                
+    </script>
+  </body>
+</html>

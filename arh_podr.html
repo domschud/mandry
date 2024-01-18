@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+      h1, p {
+        text-align: center;        
+      }
+      .lin {
+        margin-bottom: 10px;
+      }     
+      .container {
+        /*border: 2px solid #5c7058;*/
+        height: 89vh;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .horiz {
+        /*border: 2px solid #5a51cf;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */ 
+      }
+      .opis {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 45%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .opis2 {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 95%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .arh{
+        width: 100%;
+        max-width: 430px;
+      }
+      .content {
+        box-sizing: border-box;
+        width: 99%;
+        min-height: 150px;
+        padding: 15px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: row;
+        margin: 2px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .horiz2{
+        display: flex; flex-direction: row; justify-content: center;
+        height: 30vh;  
+      }
+      .imgT2,.imgT3 {
+        position: relative;
+        /*margin-bottom: 5%;*/
+        max-height: 15%;   
+        }  
+      .imgT {
+         /*border: 2px solid #5f1277;*/
+        display: flex; flex-direction: row;
+        height: 10vh;       
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+      .mal {
+         /*border: 2px solid #f828cb;*/
+        height: 5vh; 
+        margin-top: 0;
+        }            
+      .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }      
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="https://mandryvdzerkali.blogspot.com/2024/01/8.html">
+        <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+      </a>
+    </div>
+  <div class="fixed-image2">
+      <a href="index.html">
+        <img src="nazad_st.png" alt="До карти" style="width: 30%;" />
+      </a>
+    </div>
+    <h1>Архетипні подробиці</h1>
+    <div class="container">
+      <div class="horiz">
+        <div class="opis2">
+          <div class="content" id="scrn"></div>
+        </div>        
+      </div>
+      <div class="horiz">
+        <div class="opis">
+          <div class="content" id="supr"></div>
+          <img id="imgT2" class="mal" src="tab_dl_met.png"  alt="картинка"/> 
+        </div>
+        <div class="opis">
+          <div class="content" id="vkl"></div>
+          <img id="imgT3" class="mal" src="tab_dl_prk.png"  alt="картинка"/>   
+        </div>
+      </div>
+      <div class="horiz2">    
+      </div>
+      <div class="horiz">  
+        <div class="opis">
+          <div class="content" id="lub"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="nel"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <p id="modalContent"></p>
+      </div>
+    <script>    
+      var Scrn = ['<span style="font-size: 20px; color: black;">Що ж таке ці  ролі-архетипи?</span>',
+        '<span style="font-size: 16px; color: maroon;">Рольовий архетип дещо схожий на складну програму з народження закладену у підсвідоме </span>',
+        '<span style="font-size: 14px; color: black;">(але меншого рівня ніж субособистості - бо всі ці ролі будуть підпорядковуватися і підлаштовуватися під Принцесу, Короля/еву, Чарівника, хто в цей момент керує).</span>',
+        '<span style="font-size: 1px; color: maroon;"></span>',
+        '<span style="font-size: 16px; color: maroon;">Те, що робить ця програма ззовні виглядає як</span>',
+         '<span style="font-size: 20px; color: black;"> стратегія прийняття рішень та управління власними справами,</span>',
+        '<span style="font-size: 16px; color: maroon;">або спосіб вирішення різних задач і самі задачі, які ця програмка створює людині,</span>',
+        '<span style="font-size: 16px; color: maroon;">або спосіб мислення і шлях до успіху,</span>',
+        '<span style="font-size: 1px; color: maroon;"></span>',
+        '<span style="font-size: 16px; color: maroon;">або алгоритм всередині якого прописана певна цінність, що мотивує на дії, впливає на зовнішній вигляд і реакції в різних побутово-соціальних ситуаціях, який часто визначають рід діяльності і роль у суспільстві.</span>',
+        '<span style="font-size: 14px; color: black;">Але важливо розуміти, архетип – це не професія, і не місце в ієрархії.</span>' 
+      ]
+      var Supr = ['<span style="font-size: 20px; color: black;">Цих стратегій всього 12 і вони охоплюють всі необхідні суспільству функції.</span>',
+      '<span style="font-size: 18px; color: maroon;">Тобто ким би ви не були і чим би не займалися, це буде попадати в зону впливу якогось з цих архетипів. Ключова різниця між різними архетипами в прагненнях (внутрішньому мотиві) – <span style="font-size: 18px; color: black;">Навіщо</span> щось робити і у <span style="font-size: 18px; color: black;">який спосіб</span> досягти цього.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 18px; color: maroon;">Тому всі 12 присутні у житті кожної людини, навіть є теорія  що ми в обов’язковому порядку їх всі проходимо і проявляємо по черзі, доки зростаємо, або пізніше опановуючи якийсь напрям, або досягаючи цілей. </span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 18px; color: maroon;">Але, так як можливості конкретної людини і її психіки обмежені, то більш менш повний доступ до архетипу і його ресурсів є лише для 3-4 штук. Наче ліцензійна версія, яка дозволяє інтуїтивно орієнтуватися і користуватися фішечками. А всі інші як демоверсії, щось зробити можна, але не порівняти з повною.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 18px; color: maroon;">Не ведучі архетипи можна освоїти, як інструменти, цілеспрямовано навчаючись, але їх використання завжди потребує зусиль, має обмеження і не матиме інтуїтивних рішень.</span>'
+      ]
+      var Vkl = ['<span style="font-size: 20px; color: black;">Звідки виникають складності у визначенні?</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">- люди, загалом, сприйматимуть вас через ту<span style="font-size: 14px; color: black;"> точку, в якій ви виходите в море-соціум</span> - це те, що ви їм транслюєте. Як вербально словами, так і невербально – зовнішній вигляд, пози, одяг, пріоритети.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">- ззовні не видно ваш човен вас несе чи ви його тягнете. Тобто до певних меж будь-який <span style="font-size: 14px; color: black;">архетип можна освоїти</span>, і під конкретну задачу використовувати, він буде імітований, без води-інтуїтивних рішень, але виконувати свою функцію.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">- цей потік <span style="font-size: 14px; color: black;">можна заблокувати</span>, тоді ззовні воно не буде проявлятись. Але вода буде шукати вихід і вихлюпуватись і пробиватись у неочікуваних місцях. Тобто архетипи можуть ховатися під маскою один одного. У випадку коли легальний прояв заборонений.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">- в соціумі <span style="font-size: 14px; color: black;">багато стереотипів</span>, що схвалюють одні риси і не схвалюють інше, це створює бажання теж бути правителем, магом, люблячим чи бунтарем. Людина несвідомо намагається виковирять у собі нове русло, і буде видавати в тестах відповідну присутність. </span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">- <span style="font-size: 14px; color: black;">тіньовий</span> архетип може бути як ведучим так і навченим.</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 14px; color: maroon;">Архетип як частина несвідомого надто великий, щоб людина могла його весь охопити, тому вони досить індивідуально проявляються, ще й утворюють команду з сусідніми ведучими. Тобто з усіх варіантів прояву кожного архетипу активуються тільки ті сторони і якості які найбільш сумісні чи співпадають у ведучій трійці.</span>'
+      ]     
+      var Lub = ['<span style="font-size: 20px; color: black;">Нащо їх досліджувати? </span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+        '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">Сприйняття оточуючих</span> - ведучі архетипи впливають на очікування, сприйняття оточуючих, на те яку роботу нам довіряють, за яку готові нести гроші, звідки приходить успіх, де вам вірять і підтримують, а де ні.</span>',
+        '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">Особиста реалізація</span> – це внутрішні опори і цінності, з яких йде постійних приток сил, мотивації, ресурсу який можна використовувати на різноманітні задачі та реалізація яких приносить відчуття себе на своєму місці.</span>', 
+        '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">Конфлікти</span> – архетипи визначають, що буде дратувати вас і на чому виникатимуть непорозуміння з вами у оточуючих.</span>'      
+      ]      
+      var Nel = [ '<span style="font-size: 20px; color: black;">Як відшукати справжню відповідь?</span>',
+      '<span style="font-size: 1px; color: maroon;"></span>',
+      '<span style="font-size: 16px; color: black;">Найправдивіша відповідь складається спостереженням і статистикою за:</span>',
+      '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">1. Рівнем енергії </span> (вона сама з’являється, самомотивується, ви можете робити це довго і завжди робили, досить швидко відновлюватись) + очевидний для вас внутрішній мотив – навіщо ви це зробили?</span>',
+        '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">2. Враженням оточуючих </span> – вони це в вас бачать і вони постійно звертаються до вас із цим типом прохань/завдань</span>', 
+        '<span style="font-size: 16px; color: maroon;"><span style="font-size: 20px; color: black;">3. Крізь слова і дії</span> , що людина говорить і робить в реальності, а також за менш достовірними ознаками: одягом, бажаними ролями, і генетикою зовнішності</span>']   
+
+      document.getElementById('supr').innerHTML = '<div class="indented-text">' + Supr.join('<br>');
+      document.getElementById('vkl').innerHTML = '<div class="indented-text">' + Vkl.join('<br>');
+      document.getElementById('lub').innerHTML = '<div class="indented-text">' + Lub.join('<br>');
+      document.getElementById('nel').innerHTML = '<div class="indented-text">' + Nel.join('<br>');
+      document.getElementById('scrn').innerHTML = '<div class="indented-text">' + Scrn.join('<br>');
+    
+    var RCH = ['<span style="font-size: 20px; color: black;">Як це виглядає метафорично?</span>',
+      '<span style="font-size: 15px; color: maroon;">Уявіть собі острів з великою домівкою посередині і через який течуть 4 річки, кожна з яких впадає у море.</span>',
+      '<span style="font-size: 15px; color: maroon;">Сама річка – це внутрішній потік сил/енергії, а море навколо острова, то соціум. Ваш човен може легко плисти річкою, перевозячи вас і ваші ресурси і «виходити» в соціум.</span>',
+      '<span style="font-size: 15px; color: maroon;"> Саме русло та властивості річки створюють певні обмеження: як саме ви будете нею пливти, де саме виходити до моря, тобто які задачі буде вирішувати людина, в які ситуації потрапляти.</span>',
+      '<span style="font-size: 15px; color: maroon;">Інші, не ведучі архетипи будуть схожими на земельні території та дороги. Тобто при бажанні ви можете витягнути човен та штовхати його по землі і колись доберетесь до моря, але він не буде вас везти.</span>'
+      ]
+        var PAR = ['<span style="font-size: 20px; color: black;">Наприклад:</span>',
+      '<span style="font-size: 15px; color: maroon;">Ведучий Люблячий в парі з Пошукачем, буде орієнтуватися на Унікальність</span>', 
+      '<span style="font-size: 15px; color: maroon;">В парі з  Правителем на Дорогий і Сексуальний одяг</span>',
+      '<span style="font-size: 15px; color: maroon;">З Дитям – на  Ніжність та Романтику</span>',
+      '<span style="font-size: 15px; color: maroon;">В парі з Бунтарем – на Сексуальність з Пристрастю</span>',
+      '<span style="font-size: 15px; color: maroon;">З Філософом – на Естетику споглядання краси і Платонічні стосунки</span>',
+      '<span style="font-size: 15px; color: maroon;">З Друзякою – на Жіночність і Чарівність</span>'
+      ]
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+    
+      imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = RCH.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = PAR.join('<br>');
+      });
+      close.addEventListener('click', function() {
+      modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+    </script>
+  </body>
+</html>

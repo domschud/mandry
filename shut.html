@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      h1, p {
+        text-align: center;        
+      }     
+      .container {
+        /*border: 2px solid #5c7058;*/
+        height: 89vh;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .horiz {
+        /*border: 2px solid #5a51cf;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */ 
+      }
+      .opis {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 45%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .opis2 {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 95%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .arh{
+        width: 100%;
+        max-width: 430px;
+      }
+      .content {
+        box-sizing: border-box;
+        width: 99%;
+        min-height: 150px;
+        padding: 15px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: row;
+        margin: 2px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .horiz2{
+        display: flex; flex-direction: row; justify-content: center;
+        height: 30vh;  
+      }
+
+      .imgT2,.imgT3 {
+        position: relative;       
+        max-height: 15%;   
+        }  
+      .imgT {
+        /*border: 2px solid #5f1277;*/
+        display: flex; flex-direction: row;
+        height: 10vh;       
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+      .mal {
+        /*border: 2px solid #f828cb;*/
+        height: 5vh; 
+        margin-top: 0;
+        }            
+      .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="arh_stol.html">
+        <img src="nazad.png" alt="До столу" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Шут</h1>
+    <div class="container">
+      <div class="horiz">
+        <div class="opis">
+          <img class="arh" src="sht_w.jpg"  alt="картинка"/>
+        </div>
+        <div class="opis">
+          <div class="content" id="prag"></div>
+        </div>       
+      </div>
+      <div class="horiz">
+        <div class="opis">
+          <div class="content" id="supr"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="vkl"></div>
+        </div>
+      </div>
+      <div class="horiz">  
+        <div class="opis">
+          <div class="content" id="lub"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="nel"></div>
+        </div>
+      </div>
+      <div class="horiz">
+        <div class="opis2">
+          <div class="content" id="scrn"></div>
+        </div>
+        <div class="horiz2">
+          <div class="imgT" id="imgT2">
+            <img class="mal" src="tab_dl_znr.png"  alt="картинка"/>            
+          </div>
+          <div class="imgT" id="imgT3">
+            <img class="mal" src="tab_dl_znr_rs.png"  alt="картинка"/>          
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <p id="modalContent"></p>
+      </div>
+    <script>
+       var Prag = ['<span style="font-size: 20px; color: black;">Він прагне:</span>',
+      '<span style="font-size: 16px; color: maroon;">Отримувати максимум задоволення прямо зараз, чудово провести час та повеселити світ</span>',
+      '<br>',      
+      '<span style="font-size: 20px; color: black;">Стратегія: Розвага та Гра</span>',
+      '<span style="font-size: 16px; color: maroon;">Його шлях до успіху це бути у центрі уваги, розважати, жартувати, грати, розповідати історії, а також бути присутнім у всіх подіях, не звертаючи увагу на складнощі, парадокси та життєві дилеми.</span>'
+      ]
+
+      var Supr = ['<span style="font-size: 20px; color: black;">Суперсили:</span>',
+      '<span style="font-size: 16px; color: black;">(характерні ознаки)</span>',
+      '<span style="font-size: 16px; color: maroon;">Гра, веселощі, розваги, хаос, іронія, спонтанність, жарт, шоу, неочікуваність, забава</span>',
+      '<span style="font-size: 20px; color: black;">Активує:</span>',
+        '<span style="font-size: 16px; color: maroon;"> нудне, правильне, рутинне, одноманітне, коли нічого не відбувається</span>'
+      ]
+
+      var Vkl = ['<span style="font-size: 20px; color: black;">Скарб для нього:</span>',
+      '<span style="font-size: 16px; color: maroon;">Веселощі, гумор, неважливість</span>',
+      '<span style="font-size: 16px; color: maroon;"></span>',
+        '<span style="font-size: 20px; color: black;">Потаємні страхи:</span>',
+        '<span style="font-size: 16px; color: maroon;">бути нудним, не –жити, нудьга, втрата уваги та серйозність</span>'
+      ]        
+
+      var Lub = ['<span style="font-size: 20px; color: black;">Його люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Здатність до розваг та гумору, бажання зробити життя яскравішим та легшим, відчуття гри й розслабленості</span>'        
+      ]            
+
+      var Nel = [ '<span style="font-size: 20px; color: black;">Не люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Ексцентричну поведінку, несерйозність, уникання та нестабільність у вирішення важливих питань, непостійність</span>']   
+
+      var Scrn = ['<span style="font-size: 20px; color: black;">Найважче дається:</span>',
+        '<span style="font-size: 16px; color: maroon;">Ставити реальні цілі та дотримуватись їх</span>',
+        '<span style="font-size: 20px; color: black;">Скриня тіней</span>',
+        '<span style="font-size: 16px; color: maroon;">Складнощі у побуті може створити властива йому ненадійність, заважання порядку, тенденція до легкодушності та шахрайства, використання гумору задля уникання важливих питань та відповідальності.Оточуючі сприймають його лінивим та балагуром й очікують постійних розваг та веселощів.</span>' 
+      ]
+      document.getElementById('prag').innerHTML = '<div class="indented-text">' + Prag.join('<br>');
+      document.getElementById('supr').innerHTML = '<div class="indented-text">' + Supr.join('<br>');
+      document.getElementById('vkl').innerHTML = '<div class="indented-text">' + Vkl.join('<br>');
+      document.getElementById('lub').innerHTML = '<div class="indented-text">' + Lub.join('<br>');
+      document.getElementById('nel').innerHTML = '<div class="indented-text">' + Nel.join('<br>');
+      document.getElementById('scrn').innerHTML = '<div class="indented-text">' + Scrn.join('<br>');
+
+    var UKR = ['<span style="font-size: 20px; color: black;">Шут</span>',
+      '<span style="font-size: 18px; color: maroon;">Йому притаманні веселощі, пустощі й каверзи, здатність бачити у всьому смішну сторону й отримувати з ситуації максимум задоволення, перетворюючи серйозне в жарт. Авантюрність характеру дозволяє йому в будь-якій події опинятися у центрі, привертати увагу до себе несподіваними й спонтанними витівками, яскравими аксесуарами, забавними випадками. Буквально притягує до себе комічні ситуації та полюбляє всілякі безглуздощі.</span>',
+      '<span style="font-size: 18px; color: maroon;">Прагне розважатися прямо зараз, живучи сьогоднішнім днем і зменшуючи нудьгу та важливість. Часто сприймає те, що відбувається як гру, не звертаючи уваги на складнощі та парадокси чи навпаки, перетворюючи це на шоу, в якому приймають участь всі та захоплююче проводять час.</span>',
+      '<span style="font-size: 18px; color: maroon;">Цьому архетипу властивий іронічний та саркастичний погляд на речі. Йому важливо відпочивати від «важливого», збивати з пантелику й звичного ракурсу, перевертати все догори ногами, коли звичне виглядає інакше, навпаки. Буває що і доводячи до абсурду й хаосу.</span>'
+      ]
+        var ROS = ['<span style="font-size: 20px; color: black;">Шут</span>',
+      '<span style="font-size: 18px; color: maroon;">Для него характерно веселье, шалости и проказы, способность видеть во всем смешную сторону и извлекать из происходящего максимум удовольствия, превращая серьезное в шутку. Авантюрность характера позволяет ему в любом событии оказываться в центре, привлекать внимание к себе неожиданными и спонтанными выходками, яркими аксессуарами, забавными происшествиями. Буквально притягивает к себе комичные ситуации и любит всевозможные дурачества.</span>', 
+      '<span style="font-size: 18px; color: maroon;">Он стремится развлекаться прямо сейчас, живя сегодняшним днем и уменьшая скуку и важность. Часто относится к происходящему как к игре, не обращая внимания на сложности и парадоксы или наоборот, превращает их в шоу, в котором участвуют все, замечательно проводя время.</span>',
+      '<span style="font-size: 18px; color: maroon;">Этому архетипу свойственен ироничный, иногда саркастичный взгляд на вещи. Ему важно отдыхать от важного, сбивать с толку и привычного взгляда, переворачивать все – когда вещи выглядят иначе, наоборот, не редко доводя до абсурда и хаоса.</span>'
+      ]
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+    
+      imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = UKR.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = ROS.join('<br>');
+      });
+      close.addEventListener('click', function() {
+      modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+    </script>
+  </body>
+</html>

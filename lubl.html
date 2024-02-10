@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      h1, p {
+        text-align: center;        
+      }     
+      .container {
+        /*border: 2px solid #5c7058;*/
+        height: 89vh;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .horiz {
+        /*border: 2px solid #5a51cf;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */ 
+      }
+      .opis {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 45%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .opis2 {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 95%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .arh{
+        width: 100%;
+        max-width: 430px;
+      }
+      .content {
+        box-sizing: border-box;
+        width: 99%;
+        min-height: 150px;
+        padding: 15px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: row;
+        margin: 2px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .horiz2{
+        display: flex; flex-direction: row; justify-content: center;
+        height: 30vh;  
+      }
+
+      .imgT2,.imgT3 {
+        position: relative;       
+        max-height: 15%;   
+        }  
+      .imgT {
+        /*border: 2px solid #5f1277;*/
+        display: flex; flex-direction: row;
+        height: 10vh;       
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+      .mal {
+        /*border: 2px solid #f828cb;*/
+        height: 5vh; 
+        margin-top: 0;
+        }            
+      .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="arh_stol.html">
+        <img src="nazad.png" alt="До столу" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Люблячий</h1>
+    <div class="container">
+      <div class="horiz">
+        <div class="opis">
+          <img class="arh" src="lubl_w.jpg"  alt="картинка"/>
+        </div>
+        <div class="opis">
+          <div class="content" id="prag"></div>
+        </div>       
+      </div>
+      <div class="horiz">
+        <div class="opis">
+          <div class="content" id="supr"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="vkl"></div>
+        </div>
+      </div>
+      <div class="horiz">  
+        <div class="opis">
+          <div class="content" id="lub"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="nel"></div>
+        </div>
+      </div>
+      <div class="horiz">
+        <div class="opis2">
+          <div class="content" id="scrn"></div>
+        </div>
+        <div class="horiz2">
+          <div class="imgT" id="imgT2">
+            <img class="mal" src="tab_dl_znr.png"  alt="картинка"/>            
+          </div>
+          <div class="imgT" id="imgT3">
+            <img class="mal" src="tab_dl_znr_rs.png"  alt="картинка"/>          
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <p id="modalContent"></p>
+      </div>
+    <script>
+       var Prag = ['<span style="font-size: 20px; color: black;">Він прагне:</span>',
+      '<span style="font-size: 16px; color: maroon;">Любові, як духовної, так і більш приземленої, чуттєвого задоволення, прийняття, близькості, інтимності, а також робити приємною роботу чи навколишню ситуацію й вступати у відносини з людьми</span>',
+      '<span style="font-size: 16px; color: maroon;"></span>',     
+      '<span style="font-size: 20px; color: black;">Стратегія: Краса та Задоволення</span>',
+      '<span style="font-size: 16px; color: maroon;">Його шлях до успіху це бути привабливим та особливим для оточуючих, зачаровуватися чимось та закохуватися у когось. Фокусуватися на відчуттях, відчувати блаженство від того що відбувається, задоволення для очей, слуху, дотику, думок, смаку та інших сенсорних реакцій.</span>'
+      ]
+
+      var Supr = ['<span style="font-size: 20px; color: black;">Суперсили:</span>',
+      '<span style="font-size: 16px; color: black;">(характерні ознаки)</span>',
+      '<span style="font-size: 16px; color: maroon;">Краса, естетика, насолода, пристрасть, вишуканість, атмосфера, тілесність, привабливість, любов, чарівність</span>',
+      '<span style="font-size: 20px; color: black;">Активує:</span>',
+        '<span style="font-size: 16px; color: maroon;"> краса (або некраса), почуття, ритуал й атмосфера, щось особливе та ексклюзивне</span>'
+      ]
+
+      var Vkl = ['<span style="font-size: 20px; color: black;">Скарб для нього:</span>',
+      '<span style="font-size: 16px; color: maroon;">Краса, любов, насолода</span>',
+      '<span style="font-size: 16px; color: maroon;"></span>',
+        '<span style="font-size: 20px; color: black;">Потаємні страхи:</span>',
+        '<span style="font-size: 16px; color: maroon;">бути небажаним, не коханим, розлука, залишитися самотнім, відкинутим</span>'
+      ]        
+
+      var Lub = ['<span style="font-size: 20px; color: black;">Його люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Глибокі і емоційні взаємини з іншими, здатність висловлювати емоції, турботу та прагнення створювати гармонійні стосунки, а ще за схильність до створення чи підтримки краси й приємних моментів</span>'        
+      ]            
+
+      var Nel = [ '<span style="font-size: 20px; color: black;">Не люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Вразливість й глибокі переживання, а також за надто велику чутливість та стрес при конфліктах</span>']   
+
+      var Scrn = ['<span style="font-size: 20px; color: black;">Найважче дається:</span>',
+        '<span style="font-size: 16px; color: maroon;">Не втрачати себе (власну самоцінність), формуючи стосунки чи емоційні прив’язаності</span>',
+        '<span style="font-size: 20px; color: black;">Скриня тіней</span>',
+        '<span style="font-size: 16px; color: maroon;">Складнощі у побуті може створити властива йому залежність від любові інших та прив’язаностей, надто інтенсивне зав’язування відносин на емоціях, страх відмов, втрати близьких й забуття власної індивідуальності. А також оточуючі нерідко негативно сприймають його здатність очаровувати та покушати чи фокусування на задоволенні. Люблячий неначе збирає навколо себе тих, хто буде звинувачувати його у ледарстві чи тикати носом у сибаритство</span>' 
+      ]
+      document.getElementById('prag').innerHTML = '<div class="indented-text">' + Prag.join('<br>');
+      document.getElementById('supr').innerHTML = '<div class="indented-text">' + Supr.join('<br>');
+      document.getElementById('vkl').innerHTML = '<div class="indented-text">' + Vkl.join('<br>');
+      document.getElementById('lub').innerHTML = '<div class="indented-text">' + Lub.join('<br>');
+      document.getElementById('nel').innerHTML = '<div class="indented-text">' + Nel.join('<br>');
+      document.getElementById('scrn').innerHTML = '<div class="indented-text">' + Scrn.join('<br>');
+
+    var UKR = ['<span style="font-size: 20px; color: black;">Люблячий</span>',
+      '<span style="font-size: 18px; color: maroon;">Йому притаманне вміння отримувати задоволення від усього: занурення в момент, увага до всіх сенсорних відчуттів: запах, смак, візуальне оформлення, стиль тексту, чистота/мелодійність звучання, тактильні характеристики, щира насолода естетикою, стилем, гармонійними поєднаннями – все чим можна милуватися; сприйняття всіма фібрами того, що відбувається (навіть якщо це лише чашка напою на кухні).</span>',
+      '<span style="font-size: 18px; color: maroon;">Чутливий до атмосфери, що панує у приміщенні (або під час будь-якого процесу) та до дрібниць, добре розрізняє відтінки, напівтони, нюанси. Полюбляє церемонії та повсякденні ритуали, а також все, що робить життя не прісним.</span>',
+      '<span style="font-size: 18px; color: maroon;">Йому важливо з любов’ю, смакуванням відноситись до себе та всьому, що робить; добре реагує на всі види любові від безумовно романтичної до всепоглинаючої пристрасті (це стосується не тільки взаємовідносин між людьми, а і особистих захоплень/хобі – любов до літератури, музики, домашнім тваринам, певної епохи).</span>',
+      '<span style="font-size: 18px; color: maroon;">У цього архетипу яскраво виражене прагнення до краси, вишуканості й привабливості як всередині так і ззовні. Позитивно реагує на унікальне, рідкісне, єдиний і неповторний, особливий, краса створена їм чи особисто для нього.</span>'
+      ]
+        var ROS = ['<span style="font-size: 20px; color: black;">Любящий</span>',
+      '<span style="font-size: 18px; color: maroon;">Для него характерно умение получать удовольствие от всего: погружение в момент, внимание ко  всем сенсорным ощущениям: запах, вкус, визуальное оформление, стиль текста, чистота/мелодичность звучания, тактильные характеристики, искреннее наслаждение эстетикой, стилем, гармоничными сочетаниями – все, чем можно любоваться; прочувствование происходящего всеми фибрами (даже если это всего лишь чашка чая на кухне). </span>',
+      '<span style="font-size: 18px; color: maroon;">Он чуток к атмосфере, царящей в помещении (либо во время какого-либо процесса) и к деталям, хорошо различает оттенки, полутона, нюансы.  Любит церемонии и повседневные ритуалы, а также все, что делает жизнь не пресной.</span>', 
+      '<span style="font-size: 18px; color: maroon;">Ему важно с любовью, смакованием относится к себе и всему, что делает; хорошо откликается на все виды любви от безусловно романтичной до всепоглощающей страсти (это касается не только взаимоотношений между людьми, а и личных увлечений/хобби – любовь к литературе, музыке, домашним растениям, определенной эпохе).</span>',
+      '<span style="font-size: 18px; color: maroon;">У этого архетипа ярко выражено стремление к красоте, изысканности и привлекательности как внутри, так и снаружи.  Положительно реагирует на уникальное, редкое, единственное в своем роде и особенное,  красота созданная им либо специально для него.</span>'
+      ]
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+    
+      imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = UKR.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = ROS.join('<br>');
+      });
+      close.addEventListener('click', function() {
+      modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      h1, p {
+        text-align: center;        
+      }     
+      .container {
+        /*border: 2px solid #5c7058;*/
+        height: 89vh;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .horiz {
+        /*border: 2px solid #5a51cf;*/
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */ 
+      }
+      .opis {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 45%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .opis2 {
+        /*border: 2px solid #f8a528;*/
+        text-align: center;
+        box-sizing: border-box;
+        width: 95%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 45vh;
+        margin: 2px;  
+      }
+      .arh{
+        width: 100%;
+        max-width: 430px;
+      }
+      .content {
+        box-sizing: border-box;
+        width: 99%;
+        min-height: 150px;
+        padding: 15px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: row;
+        margin: 2px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .horiz2{
+        display: flex; flex-direction: row; justify-content: center;
+        height: 30vh;  
+      }
+
+      .imgT2,.imgT3 {
+        position: relative;       
+        max-height: 15%;   
+        }  
+      .imgT {
+        /*border: 2px solid #5f1277;*/
+        display: flex; flex-direction: row;
+        height: 10vh;       
+        align-items: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+      .mal {
+        /*border: 2px solid #f828cb;*/
+        height: 5vh; 
+        margin-top: 0;
+        }            
+      .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="arh_stol.html">
+        <img src="nazad.png" alt="До столу" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Правитель</h1>
+    <div class="container">
+      <div class="horiz">
+        <div class="opis">
+          <img class="arh" src="prav_w.jpg"  alt="картинка"/>
+        </div>
+        <div class="opis">
+          <div class="content" id="prag"></div>
+        </div>       
+      </div>
+      <div class="horiz">
+        <div class="opis">
+          <div class="content" id="supr"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="vkl"></div>
+        </div>
+      </div>
+      <div class="horiz">  
+        <div class="opis">
+          <div class="content" id="lub"></div>
+        </div>
+        <div class="opis">
+          <div class="content" id="nel"></div>
+        </div>
+      </div>
+      <div class="horiz">
+        <div class="opis2">
+          <div class="content" id="scrn"></div>
+        </div>
+        <div class="horiz2">
+          <div class="imgT" id="imgT2">
+            <img class="mal" src="tab_dl_znr.png"  alt="картинка"/>            
+          </div>
+          <div class="imgT" id="imgT3">
+            <img class="mal" src="tab_dl_znr_rs.png"  alt="картинка"/>          
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <span class="close" id="close">&times;</span>
+        <p id="modalContent"></p>
+      </div>
+    <script>
+       var Prag = ['<span style="font-size: 20px; color: black;">Він прагне:</span>',
+      '<span style="font-size: 16px; color: maroon;">Створити процвітаючу систему (сім’ю/компанію/спільноту), а ще порядку, керівництва та масштабування всієї вибраної сфери</span>',
+      '<br>',      
+      '<span style="font-size: 20px; color: black;">Стратегія: Контроль та Стабільність</span>',
+      '<span style="font-size: 16px; color: maroon;">Його шлях до успіху в організації будь-чого, контролюванні, стабілізуванні, правильності, а також в тому щоб брати відповідальність за рішення групи</span>'
+      ]
+
+      var Supr = ['<span style="font-size: 20px; color: black;">Суперсили:</span>',
+      '<span style="font-size: 16px; color: black;">(характерні ознаки)</span>',
+      '<span style="font-size: 16px; color: maroon;">Порядок, стабільність, розкіш, відповідальність, управління, статус, влада, система, успіх, організація</span>',
+      '<span style="font-size: 20px; color: black;">Активує:</span>',
+        '<span style="font-size: 16px; color: maroon;">непорядок, ситуація коли «так не правильно, я знаю як треба», потенційна вигода-благополуччя чи можливість збільшувати</span>'
+      ]
+
+      var Vkl = ['<span style="font-size: 20px; color: black;">Скарб для нього:</span>',
+      '<span style="font-size: 16px; color: maroon;">Відповідальність, порядок, влада</span>',
+      '<br>',
+        '<span style="font-size: 20px; color: black;">Потаємні страхи:</span>',
+        '<span style="font-size: 16px; color: maroon;">хаос та втрата контролю, бути скинутим, неслухняність</span>'
+      ]        
+
+      var Lub = ['<span style="font-size: 20px; color: black;">Його люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Лідерські якості, здатність приймати рішення та створювати порядок</span>',        
+      ]            
+
+      var Nel = [ '<span style="font-size: 20px; color: black;">Не люблять за:</span>',
+        '<span style="font-size: 16px; color: maroon;">Авторитарність, перфекціонізм у вимогах</span>']   
+
+      var Scrn = ['<span style="font-size: 20px; color: black;">Найважче дається:</span>',
+        '<span style="font-size: 16px; color: maroon;">Довіряти іншим, допускати варіативність у прийнятті рішень</span>',
+        '<span style="font-size: 20px; color: black;">Скриня тіней</span>',
+        '<span style="font-size: 16px; color: maroon;">Складнощі у побуті може створити властива йому авторитарність, надмірний контроль, використання влади в особистих інтересах, зневажливе відношення до інших, віддалення співробітників та обмеження творчості в команді. Оточуючі зазвичай побоюються й тримають дистанцію: просять, виконують доручення, але тихенько збігають від відповідальності, очікуючи від нього самостійного створення порядку й вирішення проблем.</span>' 
+      ]
+      document.getElementById('prag').innerHTML = '<div class="indented-text">' + Prag.join('<br>');
+      document.getElementById('supr').innerHTML = '<div class="indented-text">' + Supr.join('<br>');
+      document.getElementById('vkl').innerHTML = '<div class="indented-text">' + Vkl.join('<br>');
+      document.getElementById('lub').innerHTML = '<div class="indented-text">' + Lub.join('<br>');
+      document.getElementById('nel').innerHTML = '<div class="indented-text">' + Nel.join('<br>');
+      document.getElementById('scrn').innerHTML = '<div class="indented-text">' + Scrn.join('<br>');
+
+    var UKR = ['<span style="font-size: 20px; color: black;">Правитель</span>',
+      '<span style="font-size: 18px; color: maroon;">Йому притаманна організованість, послідовність й авторитетність, навіть солідність. Виражене прагнення до порядку, управління, процвітання, щоб кожен елемент працював, як гвинтик механізму. Вміння розподіляти ресурси й брати на себе відповідальність(в першу чергу за себе), що допомагає йому створювати різноманітні системи (сім’я, спільноти, бізнес, співдружність компаній).</span>',
+      '<span style="font-size: 18px; color: maroon;">Зосереджує в своїх руках владу й контроль за тим, що відбувається, залишає за собою право впливати й приймати рішення. Сам контролює свою долю, а заразом й оточуючих. Буде докладати зусилля для впорядкування хаосу перевіреними, зарекомендованими інструментами й стабілізувати його.</span>',
+      '<span style="font-size: 18px; color: maroon;">Цей архетип цінує стабільність, передбачуваність й дорогі статусні речі. Буде звертати увагу на якість й цінність, часто демонструватиме благородство, респектабельність, лідерські якості.</span>',
+      '<span style="font-size: 18px; color: maroon;">Йому важливо суспільне визнання, особливе становище з привілеями та високе місце в ієрархії, підтвердження свого статусу медалями, сертифікатами, дипломами, членство у визначених клубах тощо.</span>'
+      ]
+        var ROS = ['<span style="font-size: 20px; color: black;">Правитель</span>',
+      '<span style="font-size: 18px; color: maroon;">Для него характерна организованность, последовательность и авторитетность, даже солидность. Выражено стремление к порядку, управлению и процветанию, чтобы каждый элемент работал как винтик механизма. Умение распределять ресурсы и брать на себя ответственность ( в первую очередь за себя), что помогает ему создавать всевозможные системы(семья, сообщества, бизнес, содружество компаний).</span>', 
+      '<span style="font-size: 18px; color: maroon;">Сосредотачивает в своих руках власть и контроль за происходящим, и оставляет за собой право влиять и принимать решения.  Сам контролирует свою судьбу, а заодно и окружающих. Будет прилагать усилия, чтобы упорядочивать хаос  проверенными, зарекомендованными инструментами и стабилизировать его.</span>',
+      '<span style="font-size: 18px; color: maroon;">Этот архетип ценит стабильность, предсказуемость и дорогие статусные вещи. Будет обращать внимание на качество и ценность, и часто старается демонстрировать благородство, респектабельность, лидерские качества.</span>',
+      '<span style="font-size: 18px; color: maroon;">Ему важно общественное признание, особое положение с привилегиями и высокое место в иерархии, подтверждение своего статуса медалями, сертификатами, дипломами, членством в определенных клубах и т.д.</span>'
+      ]
+      var imgT2 = document.getElementById('imgT2');
+      var imgT3 = document.getElementById('imgT3');
+      
+      var modal = document.getElementById('modal');
+      var modalContent = document.getElementById('modalContent');
+      var close = document.getElementById('close');
+    
+      imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = UKR.join('<br>');
+      });
+      imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = ROS.join('<br>');
+      });
+      close.addEventListener('click', function() {
+      modal.style.display = 'none';
+      });
+
+      window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+    </script>
+  </body>
+</html>

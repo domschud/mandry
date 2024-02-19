@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .container {
+      border: 2px solid #5c7058;
+        width: 99%;
+        margin: 0 auto;
+        overflow: hidden;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+      }
+      .horiz {
+        border: 2px solid #5a51cf;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */  
+        margin-bottom: 15px;
+      }
+      .vert {
+        border: 2px solid #f5f828;
+        width: 100%; /* 48% для того, щоб забезпечити проміжок між блоками */
+        box-sizing: border-box;
+        margin-bottom: 1px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center; /* Рівномірний розподіл простору між .opis */
+      }
+      .opis {
+      border: 2px solid #f8a528;
+        text-align: center;
+        box-sizing: border-box;
+        width: 30%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 55vh;
+        margin: 2px;  
+      }
+      .content {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: column;
+      }
+      .center {
+        display: block;
+        margin: 0 auto;
+      }
+      .contr {
+        width: 100%;
+        height: 200px;
+        background-color: #ccc;
+        text-align: center;
+        margin-top: 5px;
+      }
+      h1, p {
+        text-align: center;
+      }
+      h {text-align: center;
+        font-weight: bolder;
+        font-size: larger;
+      }
+      p1{
+        text-align: center;
+        font-weight: bolder;
+        font-size: larger;
+      }
+      .text {
+        background: white;
+      }     
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        width: 90%;
+        height: auto;
+        object-fit: contain;
+        object-position: center top;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed-image">
+      <a href="atmos.html">
+        <img src="nazad.png" alt="До карти" style="width: 25%;" />
+      </a>
+    </div>
+    <h1>Плутанки</h1>
+    <div class="container">
+      <h>Зосереджені на чомусь своєму, внутрішньому</h>
+      <div class="horiz">
+        <div class="vert">
+          <div class="opis">
+            <img class="center" src="mdr_m.png" style="width: 25%;"/>
+            <div class="content" id="mdr"></div>
+          </div>  
+          <div class="opis">
+            <img class="center" src="prs_m.png" style="width: 25%;"/>
+            <div class="content" id="prs"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="mag_m.png" style="width: 25%;"/>
+            <div class="content" id="mag"></div>
+          </div>          
+        </div>
+        <h>Одинаки, що протиставляють себе світу</h>
+        <div class="vert">          
+          <div class="opis">
+            <img class="center" src="her_m.png" style="width: 25%;"/>
+            <div class="content" id="her"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="sht_m.png" style="width: 25%;"/>
+            <div class="content" id="sht"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="bnt_m.png" style="width: 25%;"/>
+            <div class="content" id="bnt"></div>
+          </div>          
+        </div>
+        <h>Реалізуються з врахуванням відгуку інших і визнання, мають пунктик на унікальності та незвичностях</h>
+        <div class="vert">         
+          <div class="opis">
+            <img class="center" src="isk_m.png" style="width: 25%;"/>
+          <div class="content" id="isk"></div>
+        </div>
+        <div class="opis">
+          <img class="center" src="tvr_m.png" style="width: 25%;"/>
+          <div class="content" id="tvr"></div>
+        </div>
+        <div class="opis">
+          <img class="center" src="lbl_m.png" style="width: 25%;"/>
+          <div class="content" id="lub"></div>
+        </div>
+      </div>
+      <h>Тісно взаємодіють із соціумом</h>
+        <div class="vert">         
+            <div class="opis">
+              <img class="center" src="prv_m.png" style="width: 25%;"/>
+            <div class="content" id="prv"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="slv_m.png" style="width: 25%;"/>
+            <div class="content" id="slv"></div>
+          </div>
+          <div class="opis">
+            <img class="center" src="opk_m.png" style="width: 25%;"/>
+            <div class="content" id="opk"></div>
+          </div>
+        </div>
+     
+    <script>       
+      var Mdr = ['<span style="font-size: 20px; color: black; font-weight: bold;">Філософ/Мудрець</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – сенс, зрозуміти, система-структура, радість від споглядання простоти, мудрість та спокій </span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – у збиранні знань та точок зору у систему</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – має сенс!, доведено! </span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – нісенітниця, безглуздя, дурість, відсутність сенсу, брак фактів</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">- будуть пов’язані з  діагностиками, аналізом, схемами, алгоритмами їх буде тягнути на статистику, дослідження ринку</span>'
+      ]
+
+      var Prs = ['<span style="font-size: 20px; color: black; font-weight: bold;">Дитя</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – відчути себе добре, не напружуватися, радість просто бути, просте відношення до світу і емоції</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – бачити радість</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – я в раю!, безтурботність!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – важко, складно, необхідність у точності й правильності (страх покарання)</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– легким просуванням, простими кроками, вічне дитинство і позитив у побуті й дрібницях, натуральне й природне  </span>'
+      ]
+
+      var Mag = ['<span style="font-size: 20px; color: black; font-weight: bold;">Маг</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – бути в потоці, сприймати за межами звичайного, бачити приховане, впливати своїм станом</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – налаштування на інтуїцію, відчути момент, змінити</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – Все можливо!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – раціональне пояснення що, як, чому, вимоги передбачуваності та послідовності</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;"> – ірраціональні знання, за межами, дивовижні неосяжні інструменти, технології, теми, незрозуміло за що ;)</span>'
+      ]        
+
+      var Her = ['<span style="font-size: 20px; color: black; font-weight: bold;">Герой</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;">– досягти справедливості, вирішити проблему, допомогти проявити мужність та максимум волі й сили</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – може вирішити проблему, може впоратися</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> я зміг!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – несправедливість, конкуренція з невизнанням і без відзнак</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;"> – зусилля, наполегливість, робити більше, там де є виклик, перемога, зібратися з духом та напружити тіло</span>'
+      ]    
+
+      var Sht = ['<span style="font-size: 20px; color: black; font-weight: bold;">Шут</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;">– жити весело, розважатися прямо зараз, бачити абсурдність та протиріччя – сміятися над ними, зменшувати напруження</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> –  насолоджуватися зараз же, відпочинок і несерйозність в будь-якій ситуації </span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – балаган, весело прямо зараз!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – нудно, серйозно, занудно</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;"> – розважати, генерувати враження, через фан, абсурд, скидання серйозного та важливого, невинне «анти»</span>'
+      ]
+      
+      var Bnt = ['<span style="font-size: 20px; color: black; font-weight: bold;">Бунтар</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – протистояти, сперечатися, руйнувати, тиснути, перевіряти на міцність, скидати обмеження та рамки, переступати кордони</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – перевіряти на міцність, небезпека, руйнувати те що віджило й застаріло</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – всі шоковані!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – обмеження, правила, пристойне, прийнятне у суспільстві</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– епатаж, фурор, пристрасті, напад на правлячу ідеологію, опозиційні пропозиції, розвінчання міфів й правил, або акцент на вигнанцях і забутому</span>'
+      ]
+      
+      var Isk = ['<span style="font-size: 20px; color: black; font-weight: bold;">Пошукач</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – нові враження, процес пошуку – дізнатися першим, залізти, спробувати(результат не за цінністю)</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – першопрохідник, пошук нового, свобода</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – я знайшов нічогеньке, відкрив!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> –  незручно, зайві рухи, передбачуване, вже все пробували</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– новаторські методики, дати новий досвід, пошук нестандартних рішень, методик, відкриття для інших, зміни, експерименти, перезавантаження</span>'
+      ]
+
+      var Tvr = ['<span style="font-size: 20px; color: black; font-weight: bold;">Творець</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – проявити і показати себе, свій внутрішній імпульс, створити нове</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – створити нове, проявити і показати себе так, як цього ще не робили</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – такого ще не було (я автор)</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – посереднє, пересічне, конвеєрне, загальновживане, поширене</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– оригінальні продукти, винаходи, єдині, ексклюзивні, дизайн, креатив</span>'
+      ]
+
+      var Lub = ['<span style="font-size: 20px; color: black; font-weight: bold;">Люблячий</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – насолоджуватися, краса, занурюватися у процес відчуваючи його максимально, задоволення всіх каналів</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – задоволення в моменті зараз – тілесно чуттєве</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – це блаженство, відчуваю всіма фібрами</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – негарно, аляповато, відсутність стилю-цілісності (візуально чуттєво тактильної)</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– спокушати до продукту, задоволення, зваблення, кайф, красота від усього – візуальна, слухова, інтелектуальна тілесна </span>'
+      ]
+
+      var Prv = ['<span style="font-size: 20px; color: black; font-weight: bold;">Правитель</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – щоб працювало як треба, вигода, успіх, розширення</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;">– відповідальність за себе, організація процесу</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – працює!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – хаос, неорганізованість, незрозумілість результату</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– вибудована, чітка система просування чи продажу, статус, професіоналізм, якість найвищого рівня, трендові теми і ексклюзив</span>'
+      ]
+      
+      var Slv = ['<span style="font-size: 20px; color: black; font-weight: bold;">Друзяка</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;"> – дружба, бути рівними, збиратися у групу, триматися разом, дух єднання і команди</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – бути своїм, прийняття в групу</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – ми разом!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> – напруження, білі ворони та вискакулі, розділення в ієрархію</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– партнерство, спільноти, клуби, дружня аудиторія, своя тема, рідні и спільні дії, хороша компанія</span>'
+      ]
+
+      var Opk = ['<span style="font-size: 20px; color: black; font-weight: bold;">Наставник/Опікун</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Мотив</span><span style="font-size: 17px; color: maroon;">– допомогти турботою, зберегти й виростити, розвивати і створити безпеку, затишок, можливість чомусь бути</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Задача</span><span style="font-size: 17px; color: maroon;"> – безпека, простір для зростання/дорослішання</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Радіє</span><span style="font-size: 17px; color: maroon;"> – я потрібен!</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Бісить</span><span style="font-size: 17px; color: maroon;"> –  невдячність, неможливість проконтролювати підопічного, потенційна небезпека</span>',
+      '<span style="font-size: 17px; color: black; font-weight: bold;">Гроші</span><span style="font-size: 17px; color: maroon;">– просвіта, зрощування потенціалу й здібностей будь-яких дітей, спільнот, процесів, здоров’я, фінансів, дорослих – всього, що може рости</span>'
+      ]
+      
+      document.getElementById('mdr').innerHTML = '<div class="indented-text">' + Mdr.join('<br>');
+      document.getElementById('prs').innerHTML = '<div class="indented-text">' + Prs.join('<br>');
+      document.getElementById('mag').innerHTML = '<div class="indented-text">' + Mag.join('<br>');
+      document.getElementById('her').innerHTML = '<div class="indented-text">' + Her.join('<br>');
+      document.getElementById('sht').innerHTML = '<div class="indented-text">' + Sht.join('<br>');
+      document.getElementById('bnt').innerHTML = '<div class="indented-text">' + Bnt.join('<br>');
+      document.getElementById('isk').innerHTML = '<div class="indented-text">' + Isk.join('<br>');
+      document.getElementById('tvr').innerHTML = '<div class="indented-text">' + Tvr.join('<br>');
+      document.getElementById('lub').innerHTML = '<div class="indented-text">' + Lub.join('<br>');
+      document.getElementById('prv').innerHTML = '<div class="indented-text">' + Prv.join('<br>');
+      document.getElementById('slv').innerHTML = '<div class="indented-text">' + Slv.join('<br>');
+      document.getElementById('opk').innerHTML = '<div class="indented-text">' + Opk.join('<br>');   
+      
+    </script>
+  </body>
+</html>

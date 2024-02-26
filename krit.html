@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+        border-radius: 10px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      .sup {
+        width: 25%;
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }         
+    </style>
+  </head>
+  <body><div class="fixed-image">
+    <a href="zamok.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  </div>
+    <h1>Кілька фактів про внутрішніх Злодіїв і Поганців</h1>
+    <img class="center" src="polka dl krt.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+    </div>
+    </div>
+    <script>         
+      var One = ['<span style="font-size: 15px; color: maroon;">Коли різні внутрішні процеси чи явища чи риси характеру допомагають в реалізації задумів чи приносять задоволення, вони сприймаються «як так і треба» і їх автоматичність це плюс.</span>']
+      var Two = ['<span style="font-size: 20px; color: black;">Але бувають такі, які в собі бісять, бо їх вплив має неприємні наслідки і зачіпає рішення.</span>']        
+      var Three = ['<span style="font-size: 20px; color: black;">І виникають вони коли:</span>']        
+      var Four = ['<span style="font-size: 15px; color: maroon;">-	Колись корисна реакція чи модель поведінки перестає бути такою, бо ви виросли, або  змінилися зовнішні обставини, статус, ритм життя, цілі, тощои(мовчати про свою думку чи остерігатись великих собак для дитини - має користь, для дорослого вже дуже умовно).</span>']        
+      var Five = ['<span style="font-size: 15px; color: maroon;">-	Риса характеру чи здібність в якийсь момент не знайшла «легального» прояву і була осуджена оточуючими, сприйматиметься людиною, як недолік з яким треба боротися і ховати його. </span>']        
+      var Six = ['<span style="font-size: 15px; color: maroon;">-	Авторитетна, на той момент, людина розкритикувала чи висловила свою думку таким чином, що сформувала в несвідомому деяке негативне переконання. Воно може у вигляді «голосів в голові» активовуватись на протязі багатьох років. Наприклад «ти завжди все псуєш», чи «ти не маєш хисту до малювання», «ото ти лузер, невдаха»</span>'
+      ]
+      var Sprch = ['<span style="font-size: 15px; color: maroon;">-	Є «вторинні вигоди», коли невигідно чи проблематично відкрито озвучувати свій мотив і небажання щось робити, а злодійський вплив служить прикриттям. Наприклад при хворобі прокрастинувати можна, а вчасно говорити «ні» справам, що «треба» - не гарно.</span>'
+      ]
+      var Vsm = ['<span style="font-size: 15px; color: maroon;">-	Корисні і потрібні внутрішні функції, які реалізовуються дивним чином, бо просто не знають як по іншому (не було відповідного прикладу, або хибні висновки).</span>'
+      ]
+      var Dvt = ['<span style="font-size: 15px; color: maroon;">Отже <span style="font-size: 20px; color: black;"> всередині Внутрішніх Злодіїв  завжди є емоція </span><span style="font-size: 15px; color: maroon;"> – страх, сумнів, бажання сподобатись, невпевненість, відчуття провини абощо <span style="font-size: 20px; color: black;"> і якась корисна функція чи задача</span><span style="font-size: 15px; color: maroon;">- дещо потрібне.</span>'
+      ]        
+      var Dst = ['<span style="font-size: 15px; color: maroon;">Тому боротьба з ними виснажлива і зустрічає опір від несвідомого. Доцільніше домовитись чи трансформувати.</span>'
+      ]
+      var Odnc = ['<span style="font-size: 15px; color: maroon;">Це вже не універсальні, а особистісні процеси – у кожного буде своя історія виникнення і взаємодії з ними. І самі образи і ступінь їх «заважань» будуть індивідуальні, і відрізнятися в різні періоди життя.</span>'
+      ]
+      var Dvnc = ['<span style="font-size: 15px; color: maroon;">Найзапущеніший випадок, коли людина несвідомо переносить ці процеси на «зовнішні обставини».</span>'
+      ]
+      var Trinc =['<span style="font-size: 15px; color: maroon;">Наприклад у тому, що я запізнююсь, постійно винен хтось і щось – транспорт, сусід, доля, фатум, наврочили, відволікли… Тобто замість врахування особливостей свого ритму і коректування, відбувається перенесення відповідальності на зовнішні, якими неможливо керувати.</span>'  
+      ]
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>')+ '<br><br>'+ Sprch.join('<br>')+ '<br><br>' + Vsm.join('<br>') + '<br><br>' + Dvt.join('<br>') + '<br><br>' + Dst.join('<br>')+ '<br><br>' + Odnc.join('<br>')+ '<br><br>' + Dvnc.join('<br>') + '<br><br>' + Trinc.join('<br>');                
+    </script>
+  </body>
+</html>

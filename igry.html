@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        background-image: url('005.jpg');
+        background-repeat: repeat;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Segoe Script, sans-serif;
+        }
+        h1 {
+        text-align: center;
+        margin-top: 20px;
+        }
+        .container {
+        /*border: 2px solid red;*/
+        display: flex; flex-direction: row; 
+        justify-content: center;
+        margin: 1%;
+        width: auto;
+        align-items: stretch; /* Розтягує висоту на всю висоту вікна */
+        height: 85vh; /* Висота вікна */
+        justify-content: flex-start;
+        justify-content: center;
+        margin-top: 0; 
+        flex-wrap: wrap; /* Заворотка на новий рядок при необхідності */          
+        }
+        .horiz{
+        /*border: 2px solid rgb(86, 185, 49);*/
+        display: flex; flex-direction: column; justify-content: center; justify-content: flex-start;
+        align-items: center; /* Центрування по горизонталі */
+        height: 75vh;
+        width: 60vh;  
+        margin: 5px;         
+        }
+        .opis {
+        /*border: 2px solid #f8a528;*/
+        display: flex; flex-direction: row; justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+        width: 55%; /* Ширина .opis для відображення по 2 в ряду */
+        min-width: 55vh;
+        margin: 2px;  
+      }
+      .content {
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        background-color: rgb(250, 237, 200);
+        border-radius: 10px;
+        flex-direction: column;
+      }
+      .imgT1,.imgT2,.imgT3 {
+        position: relative;
+        margin-bottom: 5%;
+        max-height: 25%;   
+        }        
+        .imgT {
+        display: flex; flex-direction: column;
+        height: 70vh;        
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+        margin-top: 0;
+        margin-left: 3%; margin-right: 3%;
+	      cursor: pointer;
+        }
+        .mal {
+        margin-top: 0;
+        }
+        .text {
+        text-align: center;
+        font-weight: bolder;
+        font-size: x-large;
+        justify-content: center;
+        margin-top: 1px;
+        }        
+        IMG.center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%; /* Маштабування зображення по ширині*/
+        height: auto; /* Маштабування зображення по висоті */
+        margin-top: 0;
+        margin-left: 5%;
+        }
+        .modal {
+        display: none; /* Початково ховаємо модальні вікна */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(126, 83, 83, 0.555);
+        z-index: 1;
+        max-height: 100vh; /* Задає максимальну висоту для модального вікна */
+        overflow-y: auto; /* Додає вертикальну полосу прокрутки, якщо вміст не вміщується */
+      }
+      .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 70%;
+        position: relative;
+        text-align: center;     
+      }
+      .close {
+        color: red;
+        cursor: pointer;
+        text-decoration: underline;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }   
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+    </style>
+  </head>
+    <body>
+      <div class="fixed-image">
+        <a href="https://mandryvdzerkali.blogspot.com/2024/04/26.html">
+          <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+        </a>
+      </div>
+      <div class="fixed-image2">
+        <a href="index.html">
+          <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+        </a>
+      </div>
+      <h1>Ігри з Випадковістю</h1>
+      <div class="container">
+        <div class="horiz">
+          <div class="imgT" id="imgT1">            
+           <div class="opis">            
+              <div class="content" id="foc"></div>
+              <img class="mal" src="tbl_ptn.png" id="raz" style="max-height: 50px;" alt="картинка"/>
+            </div>             
+          </div> 
+          <div class="opis2">   
+            <a href="https://domschud.github.io/imagemizer/index2.html">              
+            <img class="center" src="fok.jpg" style="width: 75%;"/>
+          </a>
+          </div>
+        </div>
+        <div class="horiz">
+          <div class="imgT" id="imgT2">          
+           <div class="opis">        
+              <div class="content" id="met"></div>
+              <img class="mal" src="tbl_ptn.png" style="max-height: 50px;" alt="картинка"/>
+           </div>            
+          </div>
+          <div class="opis2">    
+            <a href="https://domschud.github.io/randomizer/imageves/index6.html">               
+            <img class="center" src="metf.jpg" style="width: 75%;"/>
+          </a>
+          </div>
+        </div>
+          <div class="horiz">
+          <div class="imgT" id="imgT3">         
+            <div class="opis">          
+              <div class="content" id="nst"></div>
+              <img class="mal" src="tbl_ptn.png" style="max-height: 50px;" alt="картинка"/>
+            </div>                  
+        </div>
+        <div class="opis2">   
+          <a href="https://domschud.github.io/randomizer/imageprir/index4.html">          
+          <img class="center" src="pgd.jpg" style="width: 75%;"/> 
+        </a>
+        </div>
+        </div>        
+        </div>
+        <div class="modal" id="modal">
+          <div class="modal-content">
+          <span class="close" id="close">&times;</span>
+          <p id="modalContent"></p>
+        </div>
+      </div>
+  <script>       
+    var Foc = ['<span style="font-size: 20px; color: black;">"Фокус дня"</span>','<span style="font-size: 17px; color: maroon;"> Натисни на зображення, щоб отримати підказку на питання</span>',
+    '<span style="font-size: 20px; color: black;">На чому варто сьогодні сфокусуватись?</span>']
+
+    var Met = ['<span style="font-size: 20px; color: black;">"Метафоричне дзеркало"</span>','<span style="font-size: 17px; color: maroon;"> Натисни на зображення, щоб отримати підказку на питання</span>', '<span style="font-size: 20px; color: black;">Що відбувається в цій ситуації?</span>']
+
+    var Nst = ['<span style="font-size: 20px; color: black;">"Погода дня"</span>','<span style="font-size: 17px; color: maroon;"> Натисни на зображення, щоб отримати підказку на питання</span>',
+    '<span style="font-size: 20px; color: black;">Яка в мене всередині погода зараз?</span>']        
+
+  var Fks = ['<span style="font-size: 20px; color: black;">Тут можна пограти з Ролями-архетипами та Сферами Життя</span>',
+      '<span style="font-size: 15px; color: maroon;"> В кожній підказці зверху є загальна рекомендація куди варто направити увагу (на дію, всередину чи шукати ресурси ззовні) і знизу - ключові риси які вам знадобляться. Але можна спиратися і на особисті враження та асоціації від картинки - про що вона вам нагадує? або на що схоже це зображення? чи які думки та емоції викликає?</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 15px; color: maroon;"> Замість питання про фокус ще можна спитати</span>',
+      '<span style="font-size: 20px; color: black;"> "А що краще робити в задуманій ситуації?"</span>',
+      '<br>'];
+  var Mtf = ['<span style="font-size: 20px; color: black;">Тут можна погратись з уявою, прихованими сенсам та метафорами</span>',
+      '<span style="font-size: 15px; color: maroon;">Спершу вибирається ситуація, на яку вам потрібна підказка. Це може бути конкретна тема/проблема так і загальне зараз/сьогодні/в найближчий місяць. Роздивляючись зображення зверніть увагу на найперші емоційні реакції, здогадки, асоціації - про що вона вам нагадала? - саме тут і треба шукати відповідь.</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 15px; color: maroon;"> Якщо "нічо" не зрозуміло: детально опишіть, що саме ви на ній бачите(краще письмово). Далі перечитайте опис і спостерігайте за думками і емоціями стосовно нього - яку вашу сферу життя, чи події воно вам нагадує, на що може натякати? про які ситуації, людей, чи задачі вам згадалося в процесі розгляду? </span>',
+      '<span style="font-size: 15px; color: maroon;">Навіть проста емоційна реакція, наприклад "роздратування", "втома", "розгублення" - це вже пів відповіді - перепитайте себе, а що саме мене тут дратує і втомлює? А чим це схоже з контекстом питання?</span>',
+      '<br>'];
+    var Pgd = ['<span style="font-size: 20px; color: black;">Тут можна глибше подивитись у свій Емоційний Стан</span>',
+      '<span style="font-size: 15px; color: maroon;">Між погодою і нашим настроєм досить сильний взаємозвязок. Приховані емоції проектуючись на зображення не тільки змінюють його сприйняття, а й самі стають більш видимими. Тому роздивляючись зображення природи важливо більше спиратися не на думки, а на емоційне враження - яку погоду я бачу на зображені? кофортну чи неприємну, як реагує тіло? стискається чи розслабляється, які асоціації виникають? тривожні чи надихаючі?</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 15px; color: maroon;"> Замість питання про наявний настрій ще можна спитати</span>',
+      '<span style="font-size: 20px; color: black;"> "Яка погода-настрій буде більш ресурсною/підходящою для мене зараз?"</span>',
+      '<br>'];
+    document.getElementById('foc').innerHTML = '<div class="indented-text">' + Foc.join('<br>');
+    document.getElementById('met').innerHTML = '<div class="indented-text">' + Met.join('<br>');
+    document.getElementById('nst').innerHTML = '<div class="indented-text">' + Nst.join('<br>');
+
+    var imgT1 = document.getElementById('imgT1');
+    var imgT2 = document.getElementById('imgT2');
+    var imgT3 = document.getElementById('imgT3');
+    
+    var modal = document.getElementById('modal');
+    var modalContent = document.getElementById('modalContent');
+    var close = document.getElementById('close');
+
+    imgT1.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Fks.join('<br>');
+    });
+
+    imgT2.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Mtf.join('<br>');
+    });
+
+    imgT3.addEventListener('click', function() {
+      modal.style.display = 'block';
+      modalContent.innerHTML = Pgd.join('<br>');
+    });
+    close.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    });
+  </script>
+  </body>
+</html>

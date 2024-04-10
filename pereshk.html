@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Перешкоди</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+      .container {
+      /*border: 2px solid #5c7058;*/
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+    </style>
+  </head>
+  <body> 
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/02/11.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+  <h1>Самостійне дослідження метафоричних образів</h1>
+    <img class="center" src="polka dl prshk.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+        <!-- Ваш текст буде виводитися тут -->
+   </div>
+    </div>
+    <script>
+      var Perec = [
+      '<span style="font-size: 20px; color: black;">Коли ви хочете розглянути якийсь внутрішній образ-картинку, можна задавати собі такі питання:</span>',
+      '<span style="font-size: 20px; color: black;"></span>',
+      '<span style="font-size: 20px; color: black;">Загальні:</span>'  
+      ]     
+      var One = ['<span style="font-size: 15px; color: maroon;">- Це скоріше думка або голос в голові, який говорить фрази? Які саме слова звучать? На кого схожий голос, що її говорить? Хто колись говорив так само у вашому реальному житті?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Це більше відчуття та асоціації? Де в тілі вони сконцентровані? На що це відчуття схоже чи що нагадує?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Це більш-менш конкретна картинка? Опишіть письмово, хто там і що відбувається (коли ви письмово описуєте свої враження від будь-якої картинки як в уяві так і намальованої, ви переходите на наступний асоціативний рівень, і в самих словах опису проекція несвідомого стає більш видимою і зрозумілою)</span>']
+      var Two = ['<span style="font-size: 20px; color: black;">Описові:</span>']        
+      var Three = ['<span style="font-size: 15px; color: maroon;">- Якими прикметниками можна його-образ описати, воно яке?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Яку температуру воно має?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Воно динамічне чи статичне?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Якого розміру?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Яке на дотик і в якому стані?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Які емоції викликає?</span>',
+      '<span style="font-size: 15px; color: maroon;">- А які думки?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Воно агресивне чи спокійне, як реагує на вашу цікавість? </span>',
+      '<span style="font-size: 15px; color: maroon;">- Воно вас захищає чи вам перешкоджає?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Якими дієсловами можна описати його функцію: для чого воно? Що робить? (важливі не тільки прямі «в лоб», а і в переносному чи прихованому сенсі, наприклад: ліжко – щоб спати, але ще й можливість відновитись, особистий простір, м’яка підтримка…)</span>',
+      '<span style="font-size: 15px; color: maroon;">- Скільки воно існує чи хто його створив?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Чого воно боїться, а що його підтримує/підживлює?</span>',
+    ]        
+      var Four = ['<span style="font-size: 20px; color: black;">Трансформація:</span>']        
+      var Five = ['<span style="font-size: 15px; color: maroon;">Якщо це перешкода, які у вашій уяві є способи її подолати? (обійти, перелізти, перепливти, перелетіти, зруйнувати, розібрати, переробити в щось інше чи ще якимось чином вплинути).</span>',
+      '<span style="font-size: 15px; color: maroon;">Прислухайтесь до своїх відчуттів:</span>',
+      '<span style="font-size: 15px; color: maroon;">- Що з нею хочеться зробити (і цей спосіб легко уявляється)? </span>',
+      '<span style="font-size: 15px; color: maroon;">- Чи ви можете з цим поговорити й домовитись?</span>',
+      '<span style="font-size: 15px; color: maroon;">В своїй уяві ви можете робити, що завгодно – головний орієнтир це ваше відчуття емоційного підйому й відсутність супротиву і зусиль в фантазуванні вибраного сценарію.</span>']        
+      var Six = ['<span style="font-size: 15px; color: maroon;">Також подумайте, що відбуватиметься після цих ваших змін – що буде замість? Яке відчуття буде в тілі? І взагалі, як ви себе почуватимете після цієї трансформації? Що змінилося? Які нові можливості ви тепер матимете?</span>',        
+      '<span style="font-size: 15px; color: maroon;">Як ці зміни можуть виглядати у в реальному житті? Які дії від вас потрібні?</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 20px; color: black;">Пам’ятайте, всі сюжети і трансформації у внутрішньому світі відображаються в асоціативних зв’язках і стають реальними, як для несвідомого так і для свідомості. Тобто здійснюються і впливають по справжньому!</span>'
+      ]
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + Perec.join('<br>') + '<br><br>' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>');        
+    </script>
+  </body>
+</html>

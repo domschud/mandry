@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дорога</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }      
+      .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+        border-radius: 10px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+        margin-top: 0px;
+      }
+      .sup {
+        max-height: 50px;
+      }
+      .tabl {
+        width: 15vh;
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }   
+    </style>
+  </head>
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/02/11.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+    <h1>Прокладання Дороги</h1>
+    <img class="center" src="polka dl drg.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+    </div>
+    </div>
+    <script>         
+      var One = ['<span style="font-size: 20px; color: black;">Кожен процес, який ми запускаємо чи в якому приймаємо участь має певні етапи, які розрізняються ритмом та суттю. Їх можна пришвидшити і мінімізувати, але не прибрати чи переставити місцями. Тож прокладаючи шлях/дорогу до якоїсь цілі ми можемо спиратись на них в своїх діях.</span>']
+      var Two = ['<img src="kr0_m.jpg" class="sup" alt="початок"><span style="font-size: 18px; color: black;"> Початок шляху</span><span style="font-size: 14px; color: maroon;"> - На цьому етапі у вас з’являється ідея, мрія, бажання. Зараз час окреслити напрям, сформулювати сам намір. Момент усвідомлення та внутрішньої готовності розпочати рух<span style="font-size: 14px; color: black;">(цей етап буває дуже короткочасним, що його можна не помітити, чи знехтувати їм).</span>']        
+      var Three = ['<img src="kr1_m.jpg" class="sup" alt="перший крок"><span style="font-size: 20px; color: black;"> Місце в просторі</span><span style="font-size: 18px; color: maroon;"> – Перший крок. Рух до цілі розпочався – плавний та помірний, відчуваючи опору під ногами, й разом з тим, простір для дій. На цьому етапі вибирається й розширюється «місце» для реалізації задуму. Ви починаєте вкладати увагу й сили в те, що готово розвиватись й рости – в свій задум чи мрію. Без поспіху, сприймаючи зміни, як природній, безкінечний потік, рівномірно заповнюючи його деталями.</span>']        
+      var Four = ['<img src="kr2_m.jpg" class="sup" alt="другий крок"><span style="font-size: 20px; color: black;"> Форма й межі</span><span style="font-size: 18px; color: maroon;"> – Другий крок. В тому, що ви робите з’являється чіткість й розуміння, чого саме ви прагнете(хочете?). Цьому етапу властива прямолінійність та цілеспрямованість, в деяких моментах навіть різкість. Слушний момент щоб «видихнути» сумніви та діяти без пауз, проте усвідомлюючи свої кроки, повороти, початок та кінець дії. Стан, коли буття одразу переходить в дію. Ваш задум отримує форму й разом з нею прозорі, видимі іншим кордони.</span>']        
+      var Five = ['<img src="kr3_m.jpg" class="sup" alt="третій крок"><span style="font-size: 20px; color: black;"> Хаос та творчість</span><span style="font-size: 18px; color: maroon;"> – Третій крок. Час знайти десь в глибині вас центр вашої сили та триматись за нього. Оскільки навколо зараз панує хаос. Це етап нестриманого, непередбачуваного, неконтрольованого руху. Події відбуваються як їм завгодно. Час відпустити контроль розуму, свої погляди, очікування й припинити боротьбу за них. Пора чистої творчості й пристрасті – процес пошуку нової форми з звільненням шляху для інтуїції та глибинної мудрості.</span>']        
+      var Six = ['<img src="kr4_m.jpg" class="sup" alt="четвертий крок"><span style="font-size: 20px; color: black;"> Реалізація, прояв себе</span><span style="font-size: 18px; color: maroon;"> – Четвертий крок. Час, коли наперед виходить взаємодія з іншими – легко, без страху, показати себе через те, що ви робите. Простягніть руки іншим, щоб втягнути їх у свій танок й поділитися власним задоволенням від реалізації своєї мрії й себе. Зараз ви просуваєтесь вперед безтурботно, неначе пурхаючи, супроводжуючи цей процес щирою увагою та повагою до інших. Відчувається готовність представити своє творіння світу.</span>']
+      var Sprch = ['<img src="kr5_m.jpg" class="sup" alt="п’ятий крок"><span style="font-size: 20px; color: black;"> Насолода результатом</span><span style="font-size: 18px; color: maroon;"> – П’ятий крок. Імпульс – рух, що починається з непорушності. Настав час повного спокою й споглядання результату. Спостереження того, як ваші зусилля та ді почали приносити «врожай» - питання вирішується, задум реалізовується, бажання здійснюється. Момент усвідомлення своєї здатності чути й бути в контакті з собою та Всесвітом. Відчуття внутрішньої тиші «Я є», коли завершення стає початком наступного.</span>']
+      var Vsm = ['<img src="kr6_m.jpg" class="sup" alt="початок"><span style="font-size: 18px; color: black;"> Підсумки</span><span style="font-size: 14px; color: maroon;"> – Етап, коли ви отримали бажане. Залишилося всього лише зібрати фрагменти в цілісну картину. Час задуматись про те як ви розпорядкуєтесь реалізованою мрією чи вирішеним питанням: де ви зможете застосувати надбане й яких життєвих сфер зміни торкнуться в першу чергу? Що ви збираєтесь робити з отриманим?<span style="font-size: 14px; color: black;">(цей етап також можна пройти дуже швидко і поверхнево).</span>']
+
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>')+ '<br><br>'+ Sprch.join('<br>')+ '<br><br>' + Vsm.join('<br>');                
+    </script>
+  </body>
+</html>

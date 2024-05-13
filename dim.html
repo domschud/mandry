@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Дім</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }      
+      .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+        border-radius: 10px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+        margin-top: 0px;
+      }
+      .sup {
+        max-height: 100px;
+      }
+      .tabl {
+        width: 15vh;
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }   
+    </style>
+  </head>
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/05/15.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+    <h1>Метафора Дому</h1>
+    <img class="center" src="polka dl shv.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+    </div>
+    </div>
+    <script>         
+      var One = ['<span style="font-size: 20px; color: black;">Якщо сам образ Дому для несвідомого нерозривно пов’язаний з нашою особистістю (а те який він із сприйняттям себе, то функціональність кожного приміщення відображатиме відповідні сфери життя людини<span style="font-size: 14px; color: black;">(Защепенков В., Лифанов В. «Психология интерьера, или Мой интерьер как мой портрет» Класс, 2005). </span><span style="font-size: 20px; color: black;"> Що в цьому приміщенні роблять, для чого воно служить, наскільки воно важливе для людини віддзеркалює актуальні для неї сфери життя з такими самими функціями:</span>']
+      var Two = ['<img src="dom_m.jpg" class="sup" alt="дім"><span style="font-size: 20px; color: black;"> Дім</span><span style="font-size: 18px; color: maroon;"> – архетип Дому поза часом, поза раціональний, відображує особистість людини, її суті та відношення до сфер життя. В вашому уявному домі можуть бути всі базові приміщення і елементи або якихось не бути зовсім, чи замість них особисті, спеціалізовані<span style="font-size: 14px; color: black;">(дитяча, майстерня, столова).</span>']        
+      var Three = ['<img src="spl_m.jpg" class="sup" alt="спальня"><span style="font-size: 20px; color: black;"> Спальня</span><span style="font-size: 18px; color: maroon;"> – простір відновлення ресурсів, сил, енергії, тіла. Оживлення, наповнювання силою процесів, теорій, проектів. Пов’язаний з особистим спілкуванням, камерною атмосферою та безпекою. Те, що приховане від чужих, сторонніх людей.</span>']        
+      var Four = ['<img src="khn_m.jpg" class="sup" alt="кухня"><span style="font-size: 20px; color: black;"> Кухня</span><span style="font-size: 18px; color: maroon;"> – простір створення нового, змішування різних компонентів й процес трансформації людей, знань й технологій в те, що живить, підтримує життя. Перетворює звичне в незвичайне. Сфери життя пов’язані з внутрішніми, прихованими механізмами якогось процесу, оригінальні коктейлі.</span>']        
+      var Five = ['<img src="gst_m.jpg" class="sup" alt="вітальня"><span style="font-size: 20px; color: black;"> Вітальня</span><span style="font-size: 18px; color: maroon;"> – сфери взаємодії, всілякого спілкування та обміну інформацією, знаннями, враженнями, грошима, зв’язками – те, що робить різних людей ближче. Організація форумів, конференцій, фестивалей, спільнот за зацікавленнями, концертів.</span>']        
+      var Six = ['<img src="chrd_m.jpg" class="sup" alt="горище"><span style="font-size: 20px; color: black;"> Горище</span><span style="font-size: 18px; color: maroon;"> – простір гри, масок, ролей, виклику емоцій та здивувань. Створення ілюзій, світів за межами звичного життя: віртуального, таємних сховищ, секретів. Розгадування загадок й головоломок. Абсурдність, гра слів, підтекст, приховані сенси. Театри від побутового драматичного. Піар технології.</span>']
+      var Sprch = ['<img src="pdv_m.jpg" class="sup" alt="підвал"><span style="font-size: 20px; color: black;"> Підвал</span><span style="font-size: 18px; color: maroon;">– простір реанімування минулого, забутого, старовинних рецептів, традицій, знань, методів, рідкісних фактів. Збереження прихованого надовго, того що ще може послужити. Передавання схованого, того, що зараз знаходиться поза буттям.</span>']
+      var Vsm = ['<img src="krd_m.jpg" class="sup" alt="коридор"><span style="font-size: 20px; color: black;"> Коридор(передпокій)</span><span style="font-size: 18px; color: maroon;"> – простір підготовки до змін, переходу між сферами, науками, станами, світами, культурами. Допомога в поєднанні чи перекладі між різними мовами, статусом, світоглядами, колом спілкування та напрямками.</span>']
+      var Dvt = ['<img src="dver_m.jpg" class="sup" alt="двері"><span style="font-size: 20px; color: black;"> Двері</span><span style="font-size: 18px; color: maroon;"> – простір пов’язаний з переходом, будь-якими змінами, зокрема способу життя, початком дій, народженням нового. Прохід –портал між світами й просторами, що забезпечує вхід та вихід, й має можливість побувати в іншому: стані, вченні, науці, підходах. Засвоєння нових територій світосприйняття й бути провідником в них.</span>']
+      var Dst = ['<img src="vkn_m.jpg" class="sup" alt="вікно"><span style="font-size: 20px; color: black;"> Вікно</span><span style="font-size: 18px; color: maroon;"> – безпечне освоєння нового, спостереження, ознайомлення з іншим світом. Допомога в оцінюванні, зібрання міркувань щодо незнайомої сфери, простору, культури. Комфортне знайомство з невідомим й допомога в цьому.</span>']
+      var Odn = ['<img src="kab_m.jpg" class="sup" alt="кабінет"><span style="font-size: 20px; color: black;"> Кабінет</span><span style="font-size: 18px; color: maroon;"> – інтелектуальна кухня. Трансформування різних областей знань в нові напрямки. Компоновка, мікс, створення нових суміжних наук й використання методів з інших галузей. Вивчення теоретичних основ внутрішніх, прихованих механізмів й процесів. Підживлення свіжими ідеями.</span>']
+      var Dvn = ['<img src="van_m.jpg" class="sup" alt="ванна"><span style="font-size: 20px; color: black;"> Ванна</span><span style="font-size: 18px; color: maroon;"> – простір відновлення контакту з собою, відчуття нового народження. Пов’язаний із звичайним, особистим, щоденним оновленням та самоочищенням.</span>']
+      var Trn = ['<img src="vrn_m.jpg" class="sup" alt="веранда"><span style="font-size: 20px; color: black;"> Веранда(тераса)</span><span style="font-size: 18px; color: maroon;"> – простір повної внутрішньої відкритості й доступності, свобода від думок й міркувань оточуючих. Виходити самому за межі та виводити провітрюватись інших. Привнесення свіжих поглядів в думки, переконання, досвід. Проявлення себе повністю, справжнім, незалежно від реакції оточуючих.</span>']
+      var Cht = ['<img src="vpr_m.jpg" class="sup" alt="інші"><span style="font-size: 20px; color: black;"> Інші</span><span style="font-size: 18px; color: maroon;"> – «спеціалізовані» простори функціональність яких тісно пов’язана з конкретною діяльністю -  Дитяча, Майстерня, Столова, Балетна зала, тощо</span>']
+
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>')+ '<br><br>'+ Sprch.join('<br>')+ '<br><br>' + Vsm.join('<br>')+ '<br><br>' + Dvt.join('<br>')+ '<br><br>' + Dst.join('<br>')+ '<br><br>' + Odn.join('<br>')+ '<br><br>' + Dvn.join('<br>')+ '<br><br>' + Trn.join('<br>')+ '<br><br>' + Cht.join('<br>');                
+    </script>
+  </body>
+</html>

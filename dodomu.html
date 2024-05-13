@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Додому</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }      
+      .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      .but {
+      width: 200px; /* ширина кнопки */
+      display: flex;
+      justify-content: center;
+      }
+      .but button {
+      padding: 10px 20px; /* поле кнопки */
+      font-size: 18px; /* розмір шрифту */
+      background-color:rgb(250, 237, 200); /* колір фону кнопки */
+      border: none; /* видалення рамки */
+      color: green; /* колір тексту */
+      border-radius: 10px;
+      cursor: pointer; /* зміна курсору при наведенні на кнопку */
+      }
+      .but button:hover {
+      background-color: white; /* зміна кольору фону кнопки при наведенні */
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content;
+        border-radius: 10px;
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+        margin-top: 0px;
+      }
+      .sup {
+        max-height: 150px;
+      }
+      .tabl {
+        width: 15vh;
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/05/15.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <h1>Подорож Додому</h1>
+  <img class="center" src="polka dl shv.png" alt="Полиця" />
+  <div class="container">
+    <div class="content" id="displayText"></div>
+    <div class="but">
+      <button id="next-button">Далі</button>
+    </div>
+  </div>  
+  <script>         
+    var texts = [
+      ['<span style="font-size: 20px; color: black;">Подорож додому… це медитативна візуалізація, уявна подорож в якій важливо ловити і роздивлятись образи, та як вони змінюються в процесі, не аналізуючи, але даючи їм бути будь-якими…</span>',
+      '<br>',
+      '<span style="font-size: 18px; color: black;">Потурбуйся про свій комфорт – прийми зручну позу, виділи собі час і місце де б тебе не відволікали і …</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Уяви, як ти стоїш у якомусь темному, напів-підвальному приміщенні, перед тобою Великі, масивні, дерев’яні двері, мабуть дубові, чи можливо з якогось кипарисового масиву, на них залізні петлі, кільце і табличка з написом <span style="font-size: 20px; color: black;">«шлях до дому».</span>',
+        '<span style="font-size: 18px; color: maroon;"></span>',
+        '<span style="font-size: 18px; color: maroon;">Спочатку відчуй себе, сфокусуйся на відчутті свого тіла в просторі, відчуй маківку, плечі, руки, живіт, стегна, коліна і стопи, потім все це в цілому… і тягни за кільце… </span>',
+        '<span style="font-size: 18px; color: maroon;">Неочікувано двері, при всьому своєму масивному розмірі виявилися дуже легкими, як по маслу відчиняються, і ти робиш крок крізь них.</span>',
+        '<span style="font-size: 18px; color: maroon;">Мить білого туману і ти стоїш на ґрунтовій дорозі посеред квітучого поля, ти боса, та земля дуже тепла, навіть гладенька.</span>',
+        '<span style="font-size: 18px; color: maroon;">Можеш трохи роздивитися навколо, що там за погода, які квіти розрізняються біля дороги, наскільки це поле велике…</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Та трохи роздивившись, ти починаєш йти по стежці…</span>',
+        '<span style="font-size: 18px; color: maroon;">От так і уявляй як ти йдеш, навколо можуть змінюватись ландшафти як завгодно, просто спостерігай, куди веде тебе дорога, чи вона змінюється шириною, покриттям, що навколо, але загалом ти сфокусована на ходьбі, твої ноги рухають, прокручують цю дорогу, доки вдалині ти не помітиш <span style="font-size: 20px; color: black;"> Дім.</span>',
+        '<span style="font-size: 18px; color: maroon;">Всередині себе ти відчуваєш впевненість, що це саме той Дім, куди ти зараз йдеш.</span>',
+        '<span style="font-size: 18px; color: maroon;">Йди до нього і наближаючись розглядай – Який ландшафт навколо нього? Де він знаходиться? У полі, на пагорбі, в лісі, на острові, просто в повітрі на острівці землі, над кручею,  на березі моря? Що навколо нього дерева, кущі, хвилі, хмарки, сад, чи ?</span>',
+        '<span style="font-size: 18px; color: maroon;"></span>',
+        '<span style="font-size: 18px; color: maroon;">Поки що нічого не аналізуй, просто роздивляйся…</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Підходь до нього, - він який взагалі? Великий, маленький, з кольоровими дверями та вікнами? З верандою і сходами, чи прямо виростає з землі? Добре порозглядай, як він відчувається за настроєм, своїм станом?</span>',
+        '<span style="font-size: 18px; color: maroon;"></span>',
+        '<span style="font-size: 18px; color: maroon;">Тепер штовхай, чи тягни на себе двері і заходь всередину – що уявляється всередині? В яке приміщення ти потрапила? Які зліва, справа, чи є сходи нагору?</span>',
+        '<span style="font-size: 18px; color: maroon;"></span>',
+        '<span style="font-size: 18px; color: maroon;">Гуляй по цьому дому, запам’ятовуй приміщення, чим вони оздоблені, в якому стані?, в якому приміщенні тобі хочеться залишитись відпочити? Де в цьому домі місце для тебе зараз? Чи є приміщення про які ти знаєш, але тобі туди не хочеться?</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Ти кличеш домового, той дух, що наглядає за домом (він може прийняти будь яку форму) - в якому вигляді він до тебе приходить?</span>',
+        '<span style="font-size: 18px; color: maroon;">Розпитай чи є щось дуже важливе, що ти маєш зробити чи дозволити чи вирішити? Чим ти можеш йому допомогти і подумай чи є в тебе на це зараз сили, якщо ні, то, що потрібно для їх появи…</span>',
+        '<span style="font-size: 18px; color: maroon;"></span>',
+        '<span style="font-size: 18px; color: maroon;">Спитай, чи є в домі Шкідник? Той, що капостить чи жартує? Якщо такий є, треба розпитати, що саме він робить, і що змінюється в домі після його капості, що доводиться робити духу, чи тобі щоб «виправити» нашкоджене?</span>',
+        '<span style="font-size: 18px; color: maroon;">Прослідкуй в які моменти активізується капосник? Що в цей час відбувається ззовні чи всередині, що він може  або починає хотіти це змінити…</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Поспілкувавшись з Домовим (і можливо з Шкідником), розташуйся в найресурснішому зараз для тебе місці в Домі</span>',
+        '<span style="font-size: 18px; color: maroon;">– що ти там робиш?</span>',
+        '<span style="font-size: 18px; color: maroon;">Ти можеш знаходитись там стільки скільки вважаєш за потрібне.</span>',
+        '<span style="font-size: 18px; color: maroon;">Коли відчуєш, що час повертатися, підійди до вхідних дверей зсередини будинку і вислови намір повернутися у земну реальність зі знайденими ресурсами, і виходь за двері назовні.</span>'],
+      [ '<span style="font-size: 18px; color: maroon;">Відкрий очі, якщо вони були заплющені, і відчуй своє тіло в земному просторі: стопи, коліна, стегна, живіт, груди, руки, плечі, шия, голова, маківка…</span>',
+        '<span style="font-size: 18px; color: maroon;">Тепер можеш проаналізувати побачене: що тебе більш за все вразило? Як ти себе зараз почуваєш? (Якщо це неприємні почуття, то що тобі хочеться зараз зробити, що б могло розслабити і втішити?)</span>',
+        '<span style="font-size: 18px; color: maroon;">З яким скарбом/усвідомленням ти повернулась з цієї уявної подорожі?</span>'],
+      ['<span style="font-size: 18px; color: black;">Питання для самостійного дослідження метафори Дому:</span>',
+        '<span style="font-size: 18px; color: maroon;">-	Який він? Опиши прикметниками і занотуй собі десь відповідь (Великий, маленький, одноповерховий, світлий, чистий, затишний, дивний, помпезний, тощо)</span>',
+        '<span style="font-size: 18px; color: maroon;">-	Яке враження справляє? Спостерігай свої емоції і думки, чи вони позитивні, чи тобі подобається побачений образ, чи хочеться в ньому щось поміняти?</span>',
+        '<span style="font-size: 18px; color: maroon;">-	Що в нього всередині – скільки приміщень ии побачила, які саме? В якому вони стані? Куди тобі хотілося зайти й залишитися надовго, чи є такі в які ти не хочеш навіть заглядати?</span>',
+        '<span style="font-size: 18px; color: maroon;">-	Що б тобі хотілося там зробити, поміняти, перелаштувати? Що саме це дасть, що стане з домом після цих змін чого не було раніше?</span>',
+        '<span style="font-size: 18px; color: maroon;">-	Уяви, що у тебе із собою є два талісмани: благополуччя- процвітання (як саме він виглядає?) і особистої удачі-реалізації (а як виглядатиме цей талісман?) В яких приміщеннях ти б розташувала кожен з них?</span>'],
+      
+      ['<img src="dom_m.jpg" class="sup" alt="дім"><span style="font-size: 20px; color: black;">Що робити з відповідями?</span>',
+        '<span style="font-size: 18px; color: black;">Проаналізуй свої відповіді розгорнувши метафору на сприйняття своєї особистості:</span>',
+        '<span style="font-size: 18px; color: maroon;">Те якими прикметниками ти описала сам Дім – це те як ти сприймаєш свою особистість, своє Я;</span>',
+        '<span style="font-size: 18px; color: maroon;">Емоції і думки відображають твоє сприйняття себе, як ти до себе відносишся;</span>',
+        '<span style="font-size: 18px; color: maroon;">Наявні в домі приміщення і їхня функціональність (навіщо вони, як використовуються) показують ті сфери реального життя які мають для тебе значення, вони вбудовані всередину як важливі, цінні;</span>',
+        '<span style="font-size: 18px; color: maroon;">Зміни – це той ріст на який ти зараз налаштована – подивись, що саме і в яких приміщеннях тобі хочеться поміняти. Як ці зміни можуть виглядати в реальному житті у відповідних сферах?</span>',
+        '<span style="font-size: 18px; color: maroon;">Ті приміщення в яких ти розташувала талісмани - це ті сфери через які тобі буде найлегше отримувати матеріальне благополуччя чи само реалізовуватись-проявлятись.</span>']
+      ];
+  
+    var currentIndex = -1; // Початковий індекс -1, щоб відображати перший елемент при першому кліку
+    var displayText = document.getElementById('displayText');
+    var nextButton = document.getElementById('next-button');
+  
+    function displayNextText() {
+      currentIndex++;
+      if (currentIndex < texts.length) {
+        var text = texts[currentIndex].map(function(paragraph) {
+          return '<div class="indented-text">' + paragraph + '</div>';
+        }).join('');
+        displayText.innerHTML = text;
+      }
+      if (currentIndex === texts.length - 1) {
+        nextButton.style.display = 'none';
+      }
+    }  
+    nextButton.addEventListener('click', displayNextText);
+    displayNextText(); 
+  </script>
+  </body>
+</html>

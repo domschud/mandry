@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предмет</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+      .container {
+      /*border: 2px solid #5c7058;*/
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+    </style>
+  </head>
+  <body> 
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/02/11.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+  <h1>Предмет в домі/в тілі</h1>
+    <img class="center" src="polka dl shv.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+        <!-- Ваш текст буде виводитися тут -->
+   </div>
+    </div>
+    <script>
+      var Perec = [
+      '<span style="font-size: 20px; color: black;">В звичайному побутовому житті нас оточує величезна кількість предметів, які ми, на відміну від елементів природи, не просто споглядаємо, а активно використовуємо. Кожен предмет несе певну користь, має конкретну функцію.</span>',
+      '<span style="font-size: 20px; color: black;">Тому метафори предметів найкраще використовувати в тих питаннях де треба з’ясувати нащо ми щось робимо, з якою вигодою, що це щось нам приносить важливого чи цінного.</span>',
+      '<span style="font-size: 20px; color: black;"></span>',
+      '<span style="font-size: 20px; color: black;">Раціональний розум дуже прямолінійний - для нього стілець, щоб сидіти, тарілка, щоб їсти, ліжко щоб спати. А от для підсвідомого більше значення мають приховані змісти і натяки, асоціації і непрямі вигоди, йому важливо який саме цей предмет, яку цінність і потребу він підживлює, на які внутрішні процеси впливає.</span><span style="font-size: 15px; color: maroon;"> І ліжко може нести насолоду, безпеку або розслабляти; тарілка стає формою, що тримає хаотичне і текуче, або проявом турботи; стілець несе зручність й комфорт, підтримує здоров’я, або є витвором мистецтва, що підкреслює статус… тобто сприйняття функцій предмету не лише дуже індивідуальне, воно ще й віддзеркалює не очевидні значення й сенси.</span>'        
+      ]     
+      var One = ['<span style="font-size: 20px; color: black;">Тож, є 3 способи досліджувати щось через метафору предметів:</span>',
+      '<span style="font-size: 20px; color: black;">1.	Реальні предмети</span>',
+      '<span style="font-size: 15px; color: maroon;">Вибираєте тему-проблему, яку збираєтесь дослідити (гроші, відносини, емоція, тощо) і дивитесь навколо, в тому приміщенні де знаходитесь – який реальний предмет, вам так здалося, може символізувати цю тему? Пошук предмету має бути інтуїтивний, швидкий - подивившись на який ви подумали, оце схоже.</span>',
+      '<span style="font-size: 20px; color: black;"></span>',]
+      var Two = ['<span style="font-size: 20px; color: black;">2.	Уявні предмети</span>',
+      '<span style="font-size: 15px; color: maroon;">Цей спосіб складніший. Вибравши тему-проблему, напишіть 3-5 ваших асоціацій з нею </span><span style="font-size: 15px; color: maroon;">(одним словом, або словосполученням)</span><span style="font-size: 15px; color: maroon;">та колір з яким вона асоціюється.</span>',
+      '<span style="font-size: 15px; color: maroon;">Далі подумки порахуйте від 30 до 1, через 3.</span>',
+      '<span style="font-size: 15px; color: maroon;">І перечитайте написані асоціації і колір – який предмет може підійти під цей опис? Максимально підходить, що це може бути? Бажано сильно не аналізувати, брати перші образи, які відгукуються всередині, тобто мають позитивний емоційний заряд. В якому з приміщень Дому він знаходиться?</span>',
+      '<span style="font-size: 15px; color: black;"></span>'
+      ]        
+      var Three = ['<span style="font-size: 20px; color: black;">3.	Уявні предмети в тілі.</span>',
+      '<span style="font-size: 15px; color: maroon;">В певному сенсі ми сприймаємо тіло, як Дім. А емоції, стани і почуття тісно пов’язані з тілесними симптомами. Тому розглядаючи щось з емоційної сфери можна звертатись напряму до тіла й його відчуттів.</span>',
+      '<span style="font-size: 15px; color: maroon;">Спочатку фокусуємо увагу на своєму тілі – як саме ми відчуваємо цей стан чи емоцію – десь легкість, чи важкість, певна поза, тепло, холод, мурашки, тощо. На який предмет чи явище схоже це відчуття, який образ виринає в думках? Для чого воно там?</span>',
+      '<span style="font-size: 15px; color: black;"></span>',
+      '<span style="font-size: 20px; color: black;">Які питання собі задавати?</span>'      
+    ]        
+      var Four = ['<span style="font-size: 15px; color: maroon;">- Який він? Потрібно описати цей предмет прикметниками, чим більше тим краще</span>',
+      '<span style="font-size: 15px; color: maroon;">- Що він робить? Опишіть всі можливі функції цього предмету дієсловами, або словосполученнями з дієсловами – не тільки прямі, а і приховані змісти, всі варіанти які приходять в голову</span>',
+      '<span style="font-size: 15px; color: maroon;">-	В якому приміщенні Дому цей предмет на своєму місці? А в яких зовсім недоречний?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Він зберігається і використовується в одному приміщенні чи в різних? Як часто його використовують, в яких ситуаціях? А коли не варто?</span>',
+      '<span style="font-size: 15px; color: maroon;">- Що йому може зашкодити? Що цінного він приносить власникам? Що без нього не можливо отримати?</span>']        
+      var Five = ['<span style="font-size: 15px; color: maroon;">- Або, якщо ви розглядаєте предмет в тілі, то для чого він там? Яка його функція і яка з нього користь, як він там з’явився, коли? Що вам хочеться з ним зробити?</span>']        
+      var Six = [
+  '<span style="font-size: 15px; color: maroon;"></span>',
+  '<span style="font-size: 20px; color: black;">Перечитайте свої відповіді підставивши замість предмета тему-проблему, яку ви розглядали. І зробіть висновки в яких сферах <a href="dim.html" style="color: blue;">(дивіться значення приміщень Дому)</a> вони доречні і яка функція в них закладена. Чи співпадає це з тими задачами і сферами застосування, що ви очікуєте?</span>'
+];
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + Perec.join('<br>') + '<br><br>' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>');        
+    </script>
+  </body>
+</html>

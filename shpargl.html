@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шпаргалка</title>
+    <style>
+      body {
+      background-image: url('004.jpg');
+      background-repeat: repeat;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      font-family: Segoe Script, sans-serif;
+      }
+      .fixed-image {
+        position: fixed;
+        top: 0;
+        z-index: 1;
+      }
+      .fixed-image2 {
+        position: fixed;
+        top: 0;
+        right: -25vh; /* змінено з left на right */
+        z-index: 1;
+      }
+      .container {
+      /*border: 2px solid #5c7058;*/
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      margin: 5%;
+      margin-top: 0;
+      width: auto;
+      max-height: 95vh;
+      }
+      h1,
+      p {
+      text-align: center;
+      }
+      p1 {
+      text-align: center;
+      font-weight: bolder;
+      font-size: larger;
+      }
+      .text {
+      background: white;
+      }
+      .content {
+        margin-top: -4px; 
+        padding: 20px;
+        background-color: rgb(250, 237, 200);
+        max-width: 87%;
+        display: inline-flex;
+        flex-direction: column;
+        height: fit-content; /*розтягується по висоті відповідно до вмісту контейнера*/
+      }
+      .indented-text {
+        margin: 10px; /* Задайте потрібний вам відступ */
+      }
+      IMG.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 0;
+      width: 90%;
+      height: auto;
+      object-fit: contain;
+      object-position: center top;
+      }
+    </style>
+  </head>
+  <body> 
+  <div class="fixed-image">
+    <a href="https://mandryvdzerkali.blogspot.com/2024/02/11.html">
+      <img src="nazad_bl.png" alt="До блогу" style="width: 30%;" />
+    </a>
+  </div>
+  <div class="fixed-image2">
+    <a href="index.html">
+      <img src="nazad_kr.png" alt="До карти" style="width: 30%;" />
+    </a>
+  </div>
+  <h1>Шпаргалка для самозанурення</h1>
+    <img class="center" src="polka dl cily.png" alt="Полиця" />
+    <div class="container">
+      <div class="content" id="displayText">
+        <!-- Ваш текст буде виводитися тут -->
+   </div>
+    </div>
+    <script>
+      var Perec = [
+      '<span style="font-size: 20px; color: black;">1. Назвати проблему/задачу </span><span style="font-size: 15px; color: maroon;">(краще письмово описати, що відбувається, бо формулювання це етап де вже відсіюється частина зайвого)</span>',
+      '<span style="font-size: 20px; color: black;">2.	Спитайте себе ви знаєте чи не знаєте як це виправити/вирішити, яку дію можна чи треба зробити найпершою?</span>'  
+      ]     
+      var One = ['<span style="font-size: 20px; color: maroon;">Далі ми йдемо в зворотному напрямку: від поверхні вглиб, як ми цю тему відчуваємо в тілі:</span>',
+      '<span style="font-size: 20px; color: black;">3.	На що це схоже?</span><span style="font-size: 15px; color: maroon;">- шукаємо асоціації, образи, явища, особисті відчуття для опису взятої теми, що воно нагадує, яке?</span>']
+      var Two = ['<span style="font-size: 20px; color: black;">4.	Воно живе?</span>']        
+      var Three = ['<span style="font-size: 20px; color: black;">5.	Якщо ні, то на який предмет чи явище схоже(той знайдений образ-асоціацію)?</span>',
+      '<span style="font-size: 15px; color: maroon;">Якщо предмет, то розглядаємо його функції і розміщення в Домі.</span>',
+      '<span style="font-size: 15px; color: maroon;">Якщо явище, то питаємо себе для чого воно створено, що робить? Яку користь може приносити і в яких ситуаціях?</span>',
+      '<span style="font-size: 20px; color: black;">6.	Якщо живе, то це рослина, тварина, дух-стихія, роль чи персонаж? </span>',
+      '<span style="font-size: 15px; color: maroon;">Розглядаємо який він, де живе(зростає), чого боїться, що має, чого більш за все хоче, які можливості й вплив має, яку користь може приносити і в яких ситуаціях?</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 20px; color: maroon;">Зверніть увагу, що відповіді не мають бути логічними, ви фантазуєте, наче придумує казку чи розглядаєте образи, що самі виникають в голові, але вони мають викликати у вас емоції </span><span style="font-size: 15px; color: maroon;">(щонайменше цікавості)</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 20px; color: black;">7.	Після цього метафорично-асоціативного дослідження робите висновок – воно вам допомагає чи шкодить?</span>',
+      '<span style="font-size: 15px; color: maroon;">Якщо це перешкода і вона допомагає, то чи впевнені, у бажанні рухатись саме в цьому напрямку?</span>',
+      '<span style="font-size: 15px; color: maroon;">Якщо шкодить, то як думаєте захищає від чогось чи забороняє?</span>',
+      '<span style="font-size: 15px; color: maroon;">Якщо забороняє, то ця заборона ще актуальна чи вже застаріла?</span>',
+      '<span style="font-size: 15px; color: maroon;"></span>',
+      '<span style="font-size: 15px; color: maroon;">І останній момент: вам треба домовитись з цим чи трансформувати?</span>',
+    ]        
+      var Four = ['<span style="font-size: 20px; color: black;">8.	Буває так, що досліджувана тема ще глибша і не збирається в конкретний образ, залишається розмитими асоціаціями.</span>','<span style="font-size: 15px; color: maroon;">Тоді спитайте себе до якого етапу розвитку(3 допис) чи якої риси особистості(2 допис) вона може відноситись?</span>']        
+      var Five = ['<span style="font-size: 20px; color: black;">9. Також деякі питання чи заборони можуть знаходитись у сліпій зоні </span><span style="font-size: 15px; color: maroon;">(їх досліджувати краще зі спеціалістом).</span>',
+      ]        
+      var Six = ['<span style="font-size: 20px; color: maroon;">В побутовому житті вони часто проявляються через проекції і віддзеркалення – у вигляді сильних негативних емоцій </span><span style="font-size: 15px; color: maroon;">(роздратування, гнів, зверхність)</span><span style="font-size: 20px; color: maroon;">відносно рис характеру й вчинків оточуючих людей </span><span style="font-size: 15px; color: maroon;">(терпіти не можу коли…, бісить, що він/вона.., та як він/вона взагалі дозволяє собі…, а я ніколи…)</span>'
+      ]
+      document.getElementById('displayText').innerHTML = '<div class="indented-text">' + Perec.join('<br>') + '<br><br>' + One.join('<br>') + '<br><br>' + Two.join('<br>') + '<br><br>' + Three.join('<br>')+ '<br><br>' + Four.join('<br>')+ '<br><br>' + Five.join('<br>')+ '<br><br>' + Six.join('<br>');        
+    </script>
+  </body>
+</html>
